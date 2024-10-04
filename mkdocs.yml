@@ -3,9 +3,9 @@ docs_dir: "md"
 site_dir: "docs"
 theme: material
 nav:
-  - Inici: index.en.md
+  - Inici: index.md
   - Unitat 1. Fitxers:
-    - Sistema de Fitxers: UD1_Files/1_File_System.en.md
+    - Sistema de Fitxers: UD1_Files/1_File_System.md
     - Llegint i Escrivint: UD1_Files/2_Reading_and_writing_files.md
     - Treball amb Arxius XML: UD1_Files/3_XML_Files.md
     - Treball amb Arxius JSON: UD1_Files/4_JSON_Files.md
