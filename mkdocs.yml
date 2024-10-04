@@ -59,6 +59,7 @@ nav:
 #      author: Joan Gerard Camarena Estruch
 
 plugins:
+  - search
   - i18n:
       docs_structure: suffix
       default_language: ca
