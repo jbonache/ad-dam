@@ -1,0 +1,1498 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/jaume.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>Database Metadata - Accés a Dades</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#database-metadata" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../.." title="Accés a Dades" class="md-header__button md-logo" aria-label="Accés a Dades" data-md-component="logo">
+      
+  <img src="../../assets/jaume.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Accés a Dades
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Database Metadata
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="brown" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Selecciona la llengua">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../en" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../.." hreflang="ca" class="md-select__link">
+              Valencià
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Accés a Dades" class="md-nav__button md-logo" aria-label="Accés a Dades" data-md-component="logo">
+      
+  <img src="../../assets/jaume.png" alt="logo">
+
+    </a>
+    Accés a Dades
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inici
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 1. Fitxers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 1. Fitxers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1_Files/1_File_System.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sistema de Fitxers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1_Files/2_Reading_and_writing_files.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Llegint i Escrivint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1_Files/3_XML_Files.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Treball amb Arxius XML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1_Files/4_JSON_Files.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Treball amb Arxius JSON
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1_Files/5_Extra_Formats.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Altres formats de Fitxers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 2. Connectors
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 2. Connectors
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_Object_relational_impedance_mismatch.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desfase objecte-relacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_Connectors.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connectors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_Connecting.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connectant-se a la base de dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_Resultset.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resultats de les consultes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_Metadata.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metadades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6_CRUD.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operacions CRUD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_Row_to_Object.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De les files als objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 3. Hibernate
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 3. Hibernate
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/1_Mapping.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapeig d'objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/2_Hibernate.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduccio a Hibernate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/3_Entities_Beans.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entitats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/4_Relationships.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Relacions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/5_HQL.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consultes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 4. Bases de Dades OO
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 4. Bases de Dades OO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4_BDOO/1_Introduction.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduccio a les bases de dades OO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4_BDOO/2_ORDB.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de dades Objecte-Relacionals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4_BDOO/3_OODB.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de dades Orientades a Objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 5. Spring
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 5. Spring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/1_Data_Access_Services.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serveis d'Acces a Dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/2_Spring_SpringBoot.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció a Spring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/3_API_Rest.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creació de APIs REST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/4_Spring_Security.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Seguretat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/5_Spring_Hateoas.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spring Haetoas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/6_Postman_Swagger.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test. Postman i Swagger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 6. MongoDB
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 6. MongoDB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/1_NoSQL.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Dades NoSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/2_MongoDB.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció a MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/3_ShellOperations.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operacions amb Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/4_Queries.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consultes CRUD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/5_Mongo_Java.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mongo i Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/6_Spring_MongoDB.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spring Data MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre mi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Llicència
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#solved-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solved Exercise
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solved Exercise">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create the connection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrieve-metadata-from-dbms-and-show-in-a-friendly-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieve metadata from DBMS, and show in a friendly format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrieve-tables-in-a-schemadatabase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieve tables in a schema/database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-the-tables-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get the table's columns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="database-metadata">Database Metadata</h1>
+<p>Before retrieving data, we are going to study how to get information about the database we are connected. The metadata of a database describe the structure it has: tables of which it is composed the database, the fields that make up these tables, the types of these fields, etc. Even though we usually know this structure beforehand, it is possible that we need it on occasion of her for this we have the <code>DatabaseMetaData</code> and <code>ResultsetMetaData</code> interfaces.</p>
+<p><code>DatabaseMetaData</code> interface provides us with information about the tables and views of the database, as well as its structure. In the following table we have some of the most relevant methods of this interface.</p>
+<ul>
+<li><code>String getDatabaseProductName()</code> <span class="arithmatex">\(\rightarrow\)</span> Gets the name of the DBMS.</li>
+<li><code>String getDriverName()</code> <span class="arithmatex">\(\rightarrow\)</span> Gets the name of the JDBC driver in use.</li>
+<li><code>String getURL()</code> <span class="arithmatex">\(\rightarrow\)</span> Gets the URL of the connection.</li>
+<li><code>String getUserName()</code> <span class="arithmatex">\(\rightarrow\)</span> Gets the name of the user connected to the DB.</li>
+<li><code>ResultSet getTables(String catalog, String schema, String patternTableName, String[] type)</code> <span class="arithmatex">\(\rightarrow\)</span> Get information from the tables available in the catalog indicated.</li>
+<li><code>ResultSet getColumns(String catalog, String schema, String patternNameTable, String patternColumnName)</code> <span class="arithmatex">\(\rightarrow\)</span> Gets information from the columns of the table specified in the catalog and diagram indicated </li>
+<li><code>ResultSet getPrimaryKeys(String catalog, String schema, String patternNameTable)</code> <span class="arithmatex">\(\rightarrow\)</span> Gets the list of fields that make up the primary key.</li>
+<li><code>ResultSet getImportedKeys(String catalog, String schema, String patternNameTable)</code> <span class="arithmatex">\(\rightarrow\)</span> Gets a list with the foreign keys defined in the table.</li>
+<li><code>ResultSet getExportedKeys(String catalog, String schema, String patternNameTable)</code> <span class="arithmatex">\(\rightarrow\)</span> Gets a list with the foreign keys that point to this table</li>
+</ul>
+<p>:::note
+At this point, it is necessary to point out that the terms <strong>catalog</strong> and <strong>scheme</strong> tend to be confused. By standards, a catalog contains several schematics, with detailed system information, from the form of internal storage to the conceptual schemes. In a catalog, there seems to be one schema called <strong>INFORMATION_SCHEMA</strong>, with the views and domains of the information schema of the system.</p>
+<p>In any case, most DBMS match the catalog with the database. Moreover, in this query we specify the database name as catalog, while if open MySQLWorkbench, the database is represented as a <strong>schema</strong>. We can find more information about it in these links:</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/7022755/whats-the-difference-between-a-catalog-and-a-schema-in-a-relational-database">https://stackoverflow.com/questions/7022755/whats-the-difference-between-a-catalog-and-a-schema-in-a-relational-database</a></li>
+<li><a href="https://www.quora.com/What-is-the-difference-between-system-catalog-and-database-schemain-a-Database">https://www.quora.com/What-is-the-difference-between-system-catalog-and-database-schemain-a-Database</a>
+:::</li>
+</ul>
+<h2 id="solved-exercise">Solved Exercise</h2>
+<p>Let's go to create a Java program that shows internal information of a database <code>BDJocs</code>, through <code>DataBaseMetaData</code>. Let's view the program step by step.</p>
+<p>:::tip
+You can view all the information of the method and how the data is stored in each method's ResultSet in this <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/DatabaseMetaData.html">link</a>.
+:::</p>
+<h4 id="create-the-connection">Create the connection</h4>
+<p>Remember how to connect to a DBMS in a easy way:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">// load JDBC driver</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="mi">2</span><span class="w"> </span><span class="n">Class</span><span class="p">.</span><span class="na">forName</span><span class="p">(</span><span class="s">&quot;com.mysql.cj.jdbc.Driver&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="mi">3</span><span class="w"> </span><span class="c1">// Connecto to DBMS and DB BDJosc, with user and pass</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="mi">4</span><span class="w"> </span><span class="n">Connection</span><span class="w"> </span><span class="n">con</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="s">&quot;jdbc:mysql://localhost:3308/BDJocs&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;root&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;root&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Very simple, load the driver and connect to DB, in the way we have studied</p>
+<h4 id="retrieve-metadata-from-dbms-and-show-in-a-friendly-format">Retrieve metadata from DBMS, and show in a friendly format</h4>
+<p>We will use <code>Color</code> class to show data to paint text in console. You have this class in CEPA 1, inside the project.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span>
+<span class="normal"><a href="#__codelineno-1-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">// get the metadata</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">DatabaseMetaData</span><span class="w"> </span><span class="n">dbmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">con</span><span class="p">.</span><span class="na">getMetaData</span><span class="p">();</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="na">Blue</span><span class="o">+</span><span class="s">&quot;\nDBMS information--------&quot;</span><span class="o">+</span><span class="n">Colors</span><span class="p">.</span><span class="na">Reset</span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="na">Bright_White</span><span class="o">+</span><span class="s">&quot;SGBD:\t&quot;</span><span class="o">+</span><span class="n">Colors</span><span class="p">.</span><span class="na">Reset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dbmd</span><span class="p">.</span><span class="na">getDatabaseProductName</span><span class="p">());</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="na">Bright_White</span><span class="o">+</span><span class="s">&quot;SGBD:\t&quot;</span><span class="o">+</span><span class="n">Colors</span><span class="p">.</span><span class="na">Reset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dbmd</span><span class="p">.</span><span class="na">getDriverName</span><span class="p">());</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="na">Bright_White</span><span class="o">+</span><span class="s">&quot;SGBD:\t&quot;</span><span class="o">+</span><span class="n">Colors</span><span class="p">.</span><span class="na">Reset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dbmd</span><span class="p">.</span><span class="na">getURL</span><span class="p">());</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="na">Bright_White</span><span class="o">+</span><span class="s">&quot;SGBD:\t&quot;</span><span class="o">+</span><span class="n">Colors</span><span class="p">.</span><span class="na">Reset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dbmd</span><span class="p">.</span><span class="na">getUserName</span><span class="p">());</span>
+</code></pre></div></td></tr></table></div>
+<p>As you can see, we get the name of the DBMS, driver, URL a user we are using. Obviously, is the same that we put when we created Connection object, but it's a good example to show information.</p>
+<h4 id="retrieve-tables-in-a-schemadatabase">Retrieve tables in a schema/database</h4>
+<p>Using <code>getTables()</code> method we could recover the tables and more information. We suppose <code>BDJocs</code> exists in our DBMS:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="na">Bright_White</span><span class="o">+</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%-15s %-15s %-15s&quot;</span><span class="p">,</span><span class="s">&quot;Database&quot;</span><span class="p">,</span><span class="s">&quot;Table&quot;</span><span class="p">,</span><span class="s">&quot;Type&quot;</span><span class="p">));</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;-------------------------------------------------------&quot;</span><span class="o">+</span><span class="n">Colors</span><span class="p">.</span><span class="na">Reset</span><span class="p">);</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">ResultSet</span><span class="w"> </span><span class="n">rsmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dbmd</span><span class="p">.</span><span class="na">getTables</span><span class="p">(</span><span class="s">&quot;BDJocs&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">rsmd</span><span class="p">.</span><span class="na">next</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%-15s %-15s %-15s&quot;</span><span class="p">,</span><span class="n">rsmd</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">rsmd</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">rsmd</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="mi">4</span><span class="p">)));</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Comments:</p>
+<ul>
+<li>Revise <code>String.format()</code> to set a specific column length.</li>
+<li>From javadoc, we get than the ResultSet returned by <code>getTables</code> has the following columns:</li>
+<li><strong>TABLE_CAT</strong> String =&gt; table catalog (may be null)</li>
+<li><strong>TABLE_SCHEM</strong> String =&gt; table schema (may be null)</li>
+<li><strong>TABLE_NAME</strong> String =&gt; table name</li>
+<li><strong>TABLE_TYPE</strong> String =&gt; table type. Typical types are "TABLE", "VIEW", "SYSTEM TABLE", "GLOBAL TEMPORARY", "LOCAL TEMPORARY", "ALIAS", "SYNONYM".</li>
+<li><strong>REMARKS</strong> String =&gt; explanatory comment on the table</li>
+<li><strong>TYPE_CAT</strong> String =&gt; the types catalog (may be null)</li>
+<li><strong>TYPE_SCHEM</strong> String =&gt; the types schema (may be null)</li>
+<li><strong>TYPE_NAME</strong> String =&gt; type name (may be null)</li>
+<li><strong>SELF_REFERENCING_COL_NAME</strong> String =&gt; name of the designated "identifier" column of a typed table (may be null)</li>
+<li><strong>REF_GENERATION</strong> String =&gt; specifies how values in SELF_REFERENCING_COL_NAME are created. Values are "SYSTEM", "USER", "DERIVED". (may be null)</li>
+<li>We get columns 1, 3 and 4.</li>
+</ul>
+<h4 id="get-the-tables-columns">Get the table's columns</h4>
+<p>Is the moment to get the columns of a table, using <code>getColumns()</code> method:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">String</span><span class="w"> </span><span class="n">table</span><span class="o">=</span><span class="p">...;</span><span class="w"> </span><span class="c1">// we set the name of an existing table</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">ResultSet</span><span class="w"> </span><span class="n">columnes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dbmd</span><span class="p">.</span><span class="na">getColumns</span><span class="p">(</span><span class="s">&quot;BDJocs&quot;</span><span class="p">,</span><span class="kc">null</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">taula</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="na">Bright_White</span><span class="o">+</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%-25s %-15 s%-15s&quot;</span><span class="p">,</span><span class="s">&quot;Atribut/Claus&quot;</span><span class="p">,</span><span class="s">&quot;Tipus&quot;</span><span class="p">,</span><span class="s">&quot;Pot ser nul?&quot;</span><span class="o">+</span><span class="n">Colors</span><span class="p">.</span><span class="na">reset</span><span class="p">));</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">columnes</span><span class="p">.</span><span class="na">next</span><span class="p">()){</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">columnName</span><span class="o">=</span><span class="n">columnes</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">tipus</span><span class="o">=</span><span class="n">columnes</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">nullable</span><span class="o">=</span><span class="n">columnes</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%-25s %-15s %15s&quot;</span><span class="p">,</span><span class="n">columnName</span><span class="p">,</span><span class="n">tipus</span><span class="p">,</span><span class="n">nullable</span><span class="p">));</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Comments:</p>
+<ul>
+<li><code>getColumns()</code> returns 24 columns ResultSet, with a lot of table information. We get only columns 4, 6 and 18 with the name, type and if can be null. You can view javadoc for more information.</li>
+<li>In the same way, to get information about keys, we can use:</li>
+<li><code>getPrimaryKeys()</code> returns a ResultSet with the tables' primary keys.</li>
+<li><code>getExportedKeys()</code> returns a ResultSet with the columns that point to the current table primary key. It means all the fields in other table that point to current table primary key.</li>
+<li><code>getImportedKeys()</code> returns a ResultSet with the columns that are imported primary keys to the current table. It means the columns that are foreign key (and point to a primary key in other tables).</li>
+</ul>
+<blockquote>
+<p>You have the whole sample in package <code>DatabaseMeta</code> in sample application.</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1856 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/jaume.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>1. XML Files - Accés a Dades</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-xml-files" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../.." title="Accés a Dades" class="md-header__button md-logo" aria-label="Accés a Dades" data-md-component="logo">
+      
+  <img src="../../assets/jaume.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Accés a Dades
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. XML Files
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="brown" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Selecciona la llengua">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../en" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../.." hreflang="ca" class="md-select__link">
+              Valencià
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Accés a Dades" class="md-nav__button md-logo" aria-label="Accés a Dades" data-md-component="logo">
+      
+  <img src="../../assets/jaume.png" alt="logo">
+
+    </a>
+    Accés a Dades
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inici
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 1. Fitxers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 1. Fitxers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_File_System.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sistema de Fitxers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_Reading_and_writing_files.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Llegint i Escrivint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_XML_Files.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Treball amb Arxius XML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_JSON_Files.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Treball amb Arxius JSON
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_Extra_Formats.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Altres formats de Fitxers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 2. Connectors
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 2. Connectors
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2_Connectors/1_Object_relational_impedance_mismatch.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desfase objecte-relacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2_Connectors/2_Connectors.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connectors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2_Connectors/3_Connecting.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connectant-se a la base de dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2_Connectors/4_Resultset.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resultats de les consultes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2_Connectors/5_Metadata.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metadades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2_Connectors/6_CRUD.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operacions CRUD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2_Connectors/7_Row_to_Object.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De les files als objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 3. Hibernate
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 3. Hibernate
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/1_Mapping.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapeig d'objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/2_Hibernate.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduccio a Hibernate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/3_Entities_Beans.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entitats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/4_Relationships.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Relacions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/5_HQL.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consultes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 4. Bases de Dades OO
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 4. Bases de Dades OO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4_BDOO/1_Introduction.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduccio a les bases de dades OO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4_BDOO/2_ORDB.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de dades Objecte-Relacionals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4_BDOO/3_OODB.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de dades Orientades a Objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 5. Spring
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 5. Spring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/1_Data_Access_Services.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serveis d'Acces a Dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/2_Spring_SpringBoot.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció a Spring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/3_API_Rest.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creació de APIs REST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/4_Spring_Security.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Seguretat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/5_Spring_Hateoas.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spring Haetoas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/6_Postman_Swagger.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test. Postman i Swagger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 6. MongoDB
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 6. MongoDB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/1_NoSQL.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Dades NoSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/2_MongoDB.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció a MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/3_ShellOperations.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operacions amb Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/4_Queries.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consultes CRUD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/5_Mongo_Java.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mongo i Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/6_Spring_MongoDB.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spring Data MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre mi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Llicència
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-why-xml" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Why XML?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-the-document-object-model-dom" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. The Document Object Model (DOM)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2. The Document Object Model (DOM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-documentbuilder-and-documentbuilderfactory" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.1. DocumentBuilder and DocumentBuilderFactory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-classes-and-methods-of-dom" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3. Classes and Methods of DOM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3. Classes and Methods of DOM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-node-interface-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.1. Node interface methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-element-interface-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.2. Element interface methods:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133-document-interface-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.3. Document interface methods:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-reading-xml-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4. Reading XML files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-writing-xml-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5. Writing XML Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5. Writing XML Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.1. Transformer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-advanced-techniques-xml-binding" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6. Advanced techniques: XML binding
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="1-xml-files">1. XML Files</h1>
+<h2 id="11-why-xml">1.1. Why XML?</h2>
+<p>When we want to save data that can be read by different applications and platforms, it is best to use standard storage formats that multiple applications can understand (<strong>portability</strong>). A very specific case is <em>markup languages</em>, and the best known is the XML (<strong>eXtensible Markup Language</strong>) standard.</p>
+<p>With XML documents we structure the information by inserting marks or tags between the information. These tags have a beginning and an end, and can nest inside others, as well as contain textual information. Since the information will be textual, we don't have the problem of different data representation, since any data, of whatever type, will be passed to text. In order to also avoid the problem of different text encoding systems, XML allows the encoding used to save the document to be included in the header of the document.</p>
+<p>The way to store information in XML, in a hierarchical way, is very similar to the way objects in an application do it, so that these can be translated in a relatively convenient way to an XML document. Starting with our previous sample:</p>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Hours</th>
+<th>Qualification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accés a Dades</td>
+<td>6</td>
+<td>8.45</td>
+</tr>
+<tr>
+<td>Programació de serveis i processos</td>
+<td>3</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>Desenvolupament d'interfícies</td>
+<td>6</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>Programació Multimèdia i dispositius mòbils</td>
+<td>5</td>
+<td>7.34</td>
+</tr>
+<tr>
+<td>Sistemes de Gestió Empresarial</td>
+<td>5</td>
+<td>8.2</td>
+</tr>
+<tr>
+<td>Empresa i iniciativa emprenedora</td>
+<td>3</td>
+<td>7.4</td>
+</tr>
+</tbody>
+</table>
+<p>can be represented with only tags or labels <code>xml</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">XML</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nt">&lt;curs&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nt">&lt;modul&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">      </span><span class="nt">&lt;nom&gt;</span>Accés<span class="w"> </span>a<span class="w"> </span>Dades<span class="nt">&lt;/nom&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">      </span><span class="nt">&lt;hores&gt;</span>6<span class="nt">&lt;/hores&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">      </span><span class="nt">&lt;qualificacio&gt;</span>8.45<span class="nt">&lt;/qualificacio&gt;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="nt">&lt;/modul&gt;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="nt">&lt;modul&gt;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">      </span><span class="nt">&lt;nom&gt;</span>Programació<span class="w"> </span>de<span class="w"> </span>serveis<span class="w"> </span>i<span class="w"> </span>processos<span class="nt">&lt;/nom&gt;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">      </span><span class="nt">&lt;hores&gt;</span>3<span class="nt">&lt;/hores&gt;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">      </span><span class="nt">&lt;qualificacio&gt;</span>9.0<span class="nt">&lt;/qualificacio&gt;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="nt">&lt;/modul&gt;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="nt">&lt;modul&gt;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">      </span><span class="nt">&lt;nom&gt;</span>Desenvolupament<span class="w"> </span>d&#39;interfícies<span class="nt">&lt;/nom&gt;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">      </span><span class="nt">&lt;hores&gt;</span>6<span class="nt">&lt;/hores&gt;</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">      </span><span class="nt">&lt;qualificacio&gt;</span>8.0<span class="nt">&lt;/qualificacio&gt;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="nt">&lt;/modul&gt;</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="nt">&lt;modul&gt;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">      </span><span class="nt">&lt;nom&gt;</span>Programació<span class="w"> </span>Multimèdia<span class="w"> </span>i<span class="w"> </span>dispositiud<span class="w"> </span>mòbils<span class="nt">&lt;/nom&gt;</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">      </span><span class="nt">&lt;hores&gt;</span>5<span class="nt">&lt;/hores&gt;</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">      </span><span class="nt">&lt;qualificacio&gt;</span>7.34<span class="nt">&lt;/qualificacio&gt;</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span><span class="nt">&lt;/modul&gt;</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">    </span><span class="nt">&lt;modul&gt;</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">      </span><span class="nt">&lt;nom&gt;</span>Sistemes<span class="w"> </span>de<span class="w"> </span>Gestió<span class="w"> </span>Empresarial<span class="nt">&lt;/nom&gt;</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">      </span><span class="nt">&lt;hores&gt;</span>5<span class="nt">&lt;/hores&gt;</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">      </span><span class="nt">&lt;qualificacio&gt;</span>8.2<span class="nt">&lt;/qualificacio&gt;</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">    </span><span class="nt">&lt;/modul&gt;</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="nt">&lt;modul&gt;</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">      </span><span class="nt">&lt;nom&gt;</span>Empresa<span class="w"> </span>i<span class="w"> </span>iniciativa<span class="w"> </span>emprenedora<span class="nt">&lt;/nom&gt;</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">      </span><span class="nt">&lt;hores&gt;</span>3<span class="nt">&lt;/hores&gt;</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">      </span><span class="nt">&lt;qualificacio&gt;</span>7.4<span class="nt">&lt;/qualificacio&gt;</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">    </span><span class="nt">&lt;/modul&gt;</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="nt">&lt;/curs&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>or can be represented with tags and attributes:</p>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">XML</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nt">&lt;curs&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="nt">&lt;modul</span><span class="w"> </span><span class="na">nom=</span><span class="s">&quot;Accés a Dades&quot;</span><span class="w"> </span><span class="na">hores=</span><span class="s">&quot;6&quot;</span><span class="w"> </span><span class="na">qualificacio=</span><span class="s">&quot;8.45&quot;</span><span class="w"> </span><span class="nt">&gt;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nt">&lt;modul</span><span class="w"> </span><span class="na">nom=</span><span class="s">&quot;Programació de serveis i processos&quot;</span><span class="w"> </span><span class="err">&quot;hores&quot;=3</span><span class="w"> </span><span class="na">qualificacio=</span><span class="s">&quot;9.0&quot;</span><span class="w"> </span><span class="nt">&gt;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="nt">&lt;modul</span><span class="w"> </span><span class="na">nom =</span><span class="s">&quot;Desenvolupament d&#39;interfícies&quot;</span><span class="w"> </span><span class="na">hores=</span><span class="s">&quot;6&quot;</span><span class="w"> </span><span class="na">qualificacio=</span><span class="s">&quot;8.0&quot;</span><span class="w"> </span><span class="nt">&gt;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="nt">&lt;/modul&gt;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="nt">&lt;modul</span><span class="w"> </span><span class="na">nom=</span><span class="s">&quot;Programació Multimèdia i dispositiud mòbils&quot;</span><span class="w"> </span><span class="na">hores=</span><span class="s">&quot;5&quot;</span><span class="w"> </span><span class="na">qualificacio=</span><span class="s">&quot;7,34&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="nt">&lt;modul</span><span class="w"> </span><span class="na">nom=</span><span class="s">&quot;Sistemes de Gestió Empresarial&quot;</span><span class="w"> </span><span class="na">hores=</span><span class="s">&quot;5&quot;</span><span class="w"> </span><span class="err">&quot;qualificacio&quot;=8.2</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="nt">&lt;modul</span><span class="w"> </span><span class="na">nom=</span><span class="s">&quot;Empresa i iniciativa emprenedora&quot;</span><span class="w">  </span><span class="na">hores=</span><span class="s">&quot;3&quot;</span><span class="w"> </span><span class="na">qualificacio=</span><span class="s">&quot;7.4&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="nt">&lt;/modul&gt;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="nt">&lt;/curs&gt;</span>
+</code></pre></div></td></tr></table></div>
+An <strong>XML parser</strong> or analyzer is a class that allows you to analyze an XML file and extract information from it, relating it according to its position in the hierarchy. The analyzers, according to their way of functioning, can be:</p>
+<ul>
+<li><strong>Sequential</strong> or syntactic analyzers, which extract the content as the opening and closing tags are discovered. They are very fast, but have the problem that you have to read the whole document in order to access a specific part. In Java there is the <strong>SAX</strong> (Simple API for XML) parser as a sequential parser.</li>
+<li><strong>Hierarchical</strong> analyzers, which are usually the most used, and which save all the data of the XML document in memory, in the form of a hierarchical structure (<strong>DOM</strong> or Document Object Model, being the preferred ones for applications that have to read the data more continuously.</li>
+</ul>
+<h2 id="12-the-document-object-model-dom">1.2. The Document Object Model (DOM)</h2>
+<p>The DOM (Document Object Model) is the structure specified by the W3C where the information of XML documents is stored. The DOM has been linked mainly to the web world, with HTML and Javascript as the main drivers. In Java, the DOM is implemented using interfaces.</p>
+<p>The main interface of the DOM in Java is <code>Document</code>, and it represents the <em>entire XML document</em>. Since it is an interface, it can be implemented in several classes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An interface is a kind of template for building classes, and is generally composed of a set of unimplemented method header declarations that specify how one or more classes behave. In addition, a class can implement one or more interfaces. In this case, the class will have to declare and define all the methods of each of the interfaces, or declare itself as an abstract class.</p>
+<p>An interface should also not be confused with an <em>abstract class</em>, as there are some differences, as the interface has all abstract methods; cannot declare instance variables; a class can implement several interfaces, but not inherit from several superclasses; and the interface does not have to belong to any hierarchy, so that classes that do not have any inheritance relationship can implement the same interface.</p>
+</div>
+<p>Apart from <code>Document</code>, the W3C also defines the abstract class <code>DocumentBuilder</code>, which allows to create the DOM from the XML. In addition, the <code>DocumentBuilderFactory</code> class is specified, which allows us to manufacture <code>DocumentBuilders</code>, since being abstract it cannot be instantiated directly.</p>
+<p>It should be said, as a warning, that Java offers many libraries from which to import Document. The libraries we will use to parse XMLs will be:</p>
+<ul>
+<li>The <code>java.xml.parsers.*</code> library, which will offer the <code>DocumentBuilderFactory</code> and <code>DocumentBuilder</code> classes, and</li>
+<li>The <code>org.w3c.dom.*</code> library for the <code>Document</code> class.</li>
+</ul>
+<h3 id="121-documentbuilder-and-documentbuilderfactory">1.2.1. <code>DocumentBuilder</code> and <code>DocumentBuilderFactory</code></h3>
+<p>As discussed, <code>DocumentBuilder</code> defines an API for obtaining DOM instances from an XML document. In order to obtain an instance of the class, the <code>DocumentBuilderFactory</code> factory must be used, and specifically the <code>newDocumentBuilder()</code> method:</p>
+<p>On the other hand, in order to read and interpret the XML document, the <code>DocumentBuilderFactory</code> class provides the <code>parse()</code> method, which parses an XML indicated by a File, and returns a Document object.</p>
+<p>Let's see everything with an example. We continue with storing data about course modules, but now with XML. The following method will serve us, in order to open an XML document, parse it and return the DOM generated in a Document. We can use it everywhere in our programs, because the task is always similar:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Document</span><span class="w"> </span><span class="nf">OpenXML</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="n">SAXException</span><span class="p">,</span><span class="w"> </span><span class="n">ParserConfigurationException</span><span class="p">,</span><span class="w"> </span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Create an instance of DocumentBuilderFactory</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="n">DocumentBuilderFactory</span><span class="w"> </span><span class="n">dbFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentBuilderFactory</span><span class="p">.</span><span class="na">newInstance</span><span class="p">();</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// Using the DocumentBuilderFactory instance we create a DocumentBuilder</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="n">DocumentBuilder</span><span class="w"> </span><span class="n">dBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dbFactory</span><span class="p">.</span><span class="na">newDocumentBuilder</span><span class="p">();</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="c1">//And we use DocumentBuilder&#39;s &quot;parse&quot; method to get the document</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="n">Document</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dBuilder</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">name</span><span class="p">));</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">document</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>It should be said that the above function could have been simplified without using the intermediate statements, but it is a little offuscated:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Document</span><span class="w"> </span><span class="nf">OpenXML</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="n">SAXException</span><span class="p">,</span><span class="w"> </span><span class="n">ParserConfigurationException</span><span class="p">,</span><span class="w"> </span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="n">DocumentBuilderFactory</span><span class="p">.</span><span class="na">newInstance</span><span class="p">().</span><span class="na">newDocumentBuilder</span><span class="p">().</span><span class="na">parse</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>On the other hand, the <code>DocumentBuilder</code> class also allows us to create a new DOM, with the <code>newDocument()</code> method. This will serve us later in order to store the XML documents. The proceeding way is:</p>
+<ul>
+<li>First thing, we will have to do is create a new DOM with newDocument()</li>
+<li>Add the elements and </li>
+<li>then store it on a file. </li>
+</ul>
+<p>In later sections, we will see how to do all this. For now we're going to focus on interpreting and reading the DOM.</p>
+<p>You can visit this links in order to find more information about the <a href="http://cr.openjdk.java.net/~iris/se/11/latestSpec/api/java.xml/javax/xml/parsers/DocumentBuilder.html">DocumentBuilder</a> and <a href="http://cr.openjdk.java.net/~iris/se/11/latestSpec/api/java.xml/javax/xml/parsers/DocumentBuilderFactory.html">DocumentBuilderFactory</a> classes can be found in the OpenJDK API:</p>
+<h2 id="13-classes-and-methods-of-dom">1.3. Classes and Methods of DOM</h2>
+<p>So far we've seen how to open and parse an XML document with DocumentBuilder to create an object of type Document. In this section we will see how to work with this document in order to access the different elements. As we know, the DOM has a hierarchical structure, made up of nodes. The different types of nodes we can find are:</p>
+<ul>
+<li><code>Document</code> → which is the main node and represents all the XML.</li>
+<li><code>Element</code> → which represents the different tags (including the root). In other words, all tags are Elements, ones nested inside othres.</li>
+<li><code>TextElement</code> → which represents the content of a text tag.</li>
+<li><code>Attribute</code> → which represents the attributes.</li>
+</ul>
+<p>All these interfaces derive from the <code>Node</code> interface, so they will inherit its attributes and methods, and in addition, they will provide their own attributes and methods.</p>
+<p>Let's see the most important methods of each interface:</p>
+<h3 id="131-node-interface-methods">1.3.1. Node interface methods</h3>
+<p><strong>Methods related to obtaining information</strong></p>
+<ul>
+<li><code>String getNodeName()</code> → Gets the name of the current node</li>
+<li><code>short getNodeType()</code> → Gets the node type (ELEMENT_NODE, ATTRIBUTE_NODE, TEXT_NODE...)</li>
+<li><code>String getNodeValue()</code>→ Gets the value of the node</li>
+<li><code>NodeList getChildNodes()</code> → Gets a list with child nodes</li>
+<li><code>Node getFirstChild()</code> → Returns the first child</li>
+<li><code>Node getLastChild()</code> → Returns the last child</li>
+<li><code>NamedNodeMap getAttributes()</code> → Returns a list with the attributes of the node</li>
+<li><code>Node getParentNode()</code> → Returns the parent node</li>
+<li><code>String getTextContent()</code> → Returns the text contained in the element and its descendants</li>
+<li><code>boolean hasChildNodes()</code> → Returns true if the node has any children</li>
+<li><code>boolean hasAttributes()</code> → Returns true if the node has any attributes</li>
+</ul>
+<p><strong>Methods related to writing</strong></p>
+<ul>
+<li><code>Node appendChild(Node node)</code> → Appends a new node as the last child node.</li>
+<li><code>void removeChild(Node node)</code> → Removes the specified node from the child nodes.</li>
+</ul>
+<h3 id="132-element-interface-methods">1.3.2. Element interface methods:</h3>
+<p><strong>Methods related to obtaining information</strong></p>
+<ul>
+<li><code>String getAttribute(String name)</code> → Returns the value of the attribute given by name.</li>
+<li><code>NodeList getElementsByTagName(String name)</code> →  Returns a list of child nodes that match the given name.</li>
+<li><code>boolean hasAttribute(String name)</code> → Returns true if the element has the given attribute.</li>
+</ul>
+<p><strong>Methods related to writing</strong></p>
+<ul>
+<li><code>void setAttribute(String name, String value)</code> → Adds an attribute to the element, with the given name and value.</li>
+<li><code>void removeAttribute(String name)</code> → Removes the attribute indicated by name.</li>
+</ul>
+<h3 id="133-document-interface-methods">1.3.3. Document interface methods:</h3>
+<p><strong>Methods related to obtaining information</strong></p>
+<ul>
+<li><code>Element getDocumentElement()</code> →  Returns the root element of the document.</li>
+<li><code>NodeList getElementsByTagName(String name)</code> →  Returns a list of child nodes that match the given name</li>
+</ul>
+<p><strong>Methods related to writing</strong></p>
+<ul>
+<li><code>Element createElement(String name)</code> → Creates a new element with the given name.</li>
+<li><code>Text createTextNode(String text)</code> → Creates a new text element.</li>
+<li><code>Node appendChild(Node node)</code> → Appends a new child node.</li>
+</ul>
+<p>Objects of type <code>NodeList</code>, which represent a list of nodes, offer the <code>item(int index)</code> method to access the different nodes in the list, indicating their order.</p>
+<h2 id="14-reading-xml-files">1.4. Reading XML files</h2>
+<p>Let's go to review all concepts in this section with a practice. We are going to create a class who includes all the necessary methods to open, read, show and write XML files. We work with the document in section \ref{xmlDoc}. </p>
+<p>In order to start reading the document, the first thing we will have to do is get the root of the document, with <code>getDocumentElement()</code>, which returns an object of type <code>Element</code>. Remember that <em>doc</em> variable contains the whole DOM, read with method explained previously:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">Element</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">getDocumentElement</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div></p>
+<p>With this root element, we could already display all the content with <code>getTextContent()</code>. It will show on screen as text format, only print:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">getTextContent</span><span class="p">());</span>
+</code></pre></div></td></tr></table></div>
+<p>But what we're interested in is traversing the entire DOM and accessing its elements. For this, starting from this root element, we will follow the following steps:</p>
+<ol>
+<li>We will search for all <code>&lt;modul&gt;</code> tags with <code>getElementsByTagName</code>. This method returns us a list of nodes (object of type <code>NodeList</code>). </li>
+<li>It will be necessary to traverse the list of nodes (<code>NodeList</code>) to access each element. For this, you must use the <code>item(int index)</code> method, which will return an element of type <code>Node</code>, and which must be converted to <code>Element</code> explicitly with a cast operation.</li>
+<li>For each element, we'll access the node name to display the name and order, using <code>getNodeName()</code></li>
+<li>We look for the different tags found within each module ('name', 'hours' and 'grade') with <code>getElementsByTagName()</code>. This method have given us again a NodeList for each type of tag. Since we will only have one item, we only need to access the unique element, represented by <code>item(0)</code>.</li>
+<li>It should be noted that with the above we will have the first (and only) label 'name', 'hours' or 'grade' of the module, but we are not yet in the content, since this is an element of type <code>TEXT_NODE</code>. To access it, we will have to access the first child of the tag (<code>getFirstChild()</code>) and get its value with <code>getNodeValue()</code></li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="w">    </span><span class="c1">// We will get a list of nodes (Step 1)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">NodeList</span><span class="w"> </span><span class="n">modules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="na">getElementsByTagName</span><span class="p">(</span><span class="s">&quot;modul&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="c1">// For each node (Step 2)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">modules</span><span class="p">.</span><span class="na">getLength</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">        </span><span class="n">Element</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Element</span><span class="p">)</span><span class="w"> </span><span class="n">modules</span><span class="p">.</span><span class="na">item</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">        </span><span class="c1">// Display the node name (Step 3)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">el</span><span class="p">.</span><span class="na">getNodeName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">        </span><span class="c1">// And we show the value of the different tags </span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Nom: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">el</span><span class="p">.</span><span class="na">getElementsByTagName</span><span class="p">(</span><span class="s">&quot;nom&quot;</span><span class="p">).</span><span class="na">item</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">getFirstChild</span><span class="p">().</span><span class="na">getNodeValue</span><span class="p">());</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hores: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">el</span><span class="p">.</span><span class="na">getElementsByTagName</span><span class="p">(</span><span class="s">&quot;hores&quot;</span><span class="p">).</span><span class="na">item</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">getFirstChild</span><span class="p">().</span><span class="na">getNodeValue</span><span class="p">());</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Qualificació: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">el</span><span class="p">.</span><span class="na">getElementsByTagName</span><span class="p">(</span><span class="s">&quot;qualificacio&quot;</span><span class="p">).</span><span class="na">item</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">getFirstChild</span><span class="p">().</span><span class="na">getNodeValue</span><span class="p">());</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="15-writing-xml-files">1.5. Writing XML Files</h2>
+<p>Now let's go to the writing part of the XML documents. For this, we will start from a file that already contains the information in binary format of the modules (for example from previous section), we will read it, and we will import its information in XML format.</p>
+<p>The first thing we need to do is read the object file using an <code>ObjectInputStream</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">ObjectInputStream</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObjectInputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="n">file</span><span class="p">));</span>
+</code></pre></div></td></tr></table></div>
+<p>And create an empty Xml Document, using the <code>DocumentBuilder</code> and <code>DocumentBuilderFactory</code> classes:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">Document</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentBuilderFactory</span><span class="p">.</span><span class="na">newInstance</span><span class="p">().</span><span class="na">newDocumentBuilder</span><span class="p">().</span><span class="na">newDocument</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<p>Once we have the empty document, we create the root element (curso), and add it to the document:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">Element</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;curso&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">doc</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Remember that we will access the object file, so we will have to know exactly what the class we want to read is like, and access the corresponding methods in order to obtain information about it. For this, first, you need to define an object of type <code>Modul</code>, and we will read the object file with the <code>readObject</code> method of File. Once we have read an object, we will create the tag that encompasses each of them: the <code>modul</code> tag:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">Modul</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Modul</span><span class="p">)</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">readObject</span><span class="p">();</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">Element</span><span class="w"> </span><span class="n">modul</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;modul&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>And inside it, and as we extract the different properties of the Modul object, we will create child nodes and add them to the module. For example, for module name:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">Element</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;nom&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">name</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">doc</span><span class="p">.</span><span class="na">createTextNode</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">getModul</span><span class="p">()));</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="n">module</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>As we can see, we have created an object of type Element with the label 'name', and we have added as a child a node of type text (TEXT_NODE), which we have extracted directly from the object <code>Modul m</code> with its own function <code>getModul()</code>. Additionally, we added this tag to the <code>&lt;modul&gt;</code> tag, with appendChild.</p>
+<p>We will have to do the same for the hours of each module and the qualification, but for this, we will have to take into account that the getHores and getNota methods do not return a String, but an int and a double, so they will have to be converted to text:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span>
+<span class="normal"><a href="#__codelineno-12-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">Element</span><span class="w"> </span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;hores&quot;</span><span class="p">);</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="n">hours</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">doc</span><span class="p">.</span><span class="na">createTextNode</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">getHores</span><span class="p">())));</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">module</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">hours</span><span class="p">);</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="n">Element</span><span class="w"> </span><span class="n">qualification</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">&quot;qualificacio&quot;</span><span class="p">);</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="n">qualification</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">doc</span><span class="p">.</span><span class="na">createTextNode</span><span class="p">(</span><span class="n">Double</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">getNote</span><span class="p">())));</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="n">module</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">grade</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>We'll put this entire procedure inside a loop that slides the entire object file. Once we have read each of the modules, we will have to add them to the root element with:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">root</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="n">module</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>And we will already have our XML document at the root. Now we would have to convert this object of type <code>Element</code> into a text string in order to be able to write it to the disk. For this we will make use of the <code>Transformer</code> utility.</p>
+<h3 id="151-transformer">1.5.1. Transformer</h3>
+<p>Java offers us the <code>Transformer</code> utility to convert information between different hierarchical formats, such as the Document object that contains the DOM of our XML, to an XML text file.</p>
+<p>The <code>Transformer</code> class, like <code>DocumentBuilder</code>, is also an abstract class, so it also requires a factory to be instantiated. The Transformer class works with two types of adapters. Adapters are classes that make different hierarchies compatible. These adapters are <code>Source</code> and <code>Result</code>. The classes that implement these adapters will be responsible for making the different types of containers compatible with what the Transformer class requires. So, and to clarify, we have the <code>DOMSource</code>, <code>SAXSource</code> or <code>StreamSource</code> classes, which are adapters of the information source container for DOM, SAX or Stream; and of <code>DOMResult</code>, <code>SAXResult</code>, and <code>StreamResult</code> as equivalent adapters to the target container.</p>
+<p>For our case, since we have a DOM and want to convert it to a Stream, we will need a <code>DomSource</code> and a <code>StreamResult</code>. Let's see the code needed to do this:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">Transformer</span><span class="w"> </span><span class="n">trans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TransformerFactory</span><span class="p">.</span><span class="na">newInstance</span><span class="p">().</span><span class="na">newTransformer</span><span class="p">();</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">DOMSource</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DOMSource</span><span class="p">(</span><span class="n">doc</span><span class="p">);</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">StreamResult</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamResult</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="n">file</span><span class="o">+</span><span class="s">&quot;.xml&quot;</span><span class="p">));</span>
+</code></pre></div></td></tr></table></div>
+<p>The first thing we have done is to create an object of type Transformer with the newTransformer() method of an instance (newInstance()) of the Transformers factory TransformerFactory. Then we defined the source (source) and the result (result) for the transformation, the source being a DomSource created from the doc that contains our document, and the result a StreamResult, which will write the stream to disk through a FileOutputStream.</p>
+<p>And finally, we do the transformation from one element to another, which will automatically generate the output XML file:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">trans</span><span class="p">.</span><span class="na">transform</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">You can get</p>
+<p>The full sample is available on Aules platform</p>
+</div>
+<h2 id="16-advanced-techniques-xml-binding">1.6. Advanced techniques: XML binding</h2>
+<p>The Binding technique consists of generating Java classes with specific formats, such as XML, so that each XML tag or attribute corresponds to a property of a certain class. This correspondence is called a <strong>mapping</strong>.</p>
+<p>In Java, there are different libraries for mapping or binding: JAXB, JuBX, XMLBinding, etc. JAXB (Java Architecture for XML Binding) is a powerful library that has been included in the standard since JDK 6, but has been removed in version 11, and is suggested to be included as a third-party package. JAXB makes use of annotations to get the information needed to map the binding. Annotations are special Java indications that allow you to associate information and functionality to objects, without interfering with the structure of the data model. Annotations can be associated with a package, class, attribute, or parameter, and are declared with the <code>@</code> symbol in front of the annotation name. When the compiler detects an annotation, it creates an instance and injects it into the affected element, without interfering with the class itself. When an application needs the information from the annotations, they can get the injected instance.</p>
+<p>For example, in the <code>Modul</code> class we had defined, we would use the annotation <code>@XmlRootElement</code> to indicate the root element of the module, and the annotations <code>@XmlElement</code>, to indicate that the setters of the class will also write XML elements.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span>
+<span class="normal"><a href="#__codelineno-16-14">14</a></span>
+<span class="normal"><a href="#__codelineno-16-15">15</a></span>
+<span class="normal"><a href="#__codelineno-16-16">16</a></span>
+<span class="normal"><a href="#__codelineno-16-17">17</a></span>
+<span class="normal"><a href="#__codelineno-16-18">18</a></span>
+<span class="normal"><a href="#__codelineno-16-19">19</a></span>
+<span class="normal"><a href="#__codelineno-16-20">20</a></span>
+<span class="normal"><a href="#__codelineno-16-21">21</a></span>
+<span class="normal"><a href="#__codelineno-16-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="nd">@XmlRootElement</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kd">class</span> <span class="nc">Modul</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">hores</span><span class="p">;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">nota</span><span class="p">;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getNom</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="w">    </span><span class="nd">@XmlElement</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setNom</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getHores</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">hores</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="w">    </span><span class="nd">@XmlElement</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setHores</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">hores</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">hores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hores</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a>
+<a id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getNota</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">nota</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="w">    </span><span class="nd">@XmlElement</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setNota</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">nota</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">nota</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nota</span><span class="p">;}</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20"></a>
+<a id="__codelineno-16-21" name="__codelineno-16-21"></a>
+<a id="__codelineno-16-22" name="__codelineno-16-22"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>With this we would have only the class with annotations ready to save a module as an XML document. To save the entire hierarchy we should create the <code>Curs</code> class, which would contain an <code>ArrayList</code> of modules.</p>
+<p>As for this course, we will not delve further into this technique, since for our purposes, the XML parsing that we have seen in previous sections is sufficient.</p>
+<div class="admonition note">
+<p class="admonition-title">More and more</p>
+<p>We are going to use lots of annotations this course, keep calm...</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

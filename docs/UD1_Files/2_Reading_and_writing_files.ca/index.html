@@ -1,0 +1,2434 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/jaume.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>1. Lectura i escriptura de fitxers - Accés a Dades</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-lectura-i-escriptura-de-fitxers" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../.." title="Accés a Dades" class="md-header__button md-logo" aria-label="Accés a Dades" data-md-component="logo">
+      
+  <img src="../../assets/jaume.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Accés a Dades
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Lectura i escriptura de fitxers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="brown" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Selecciona la llengua">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../en" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../.." hreflang="ca" class="md-select__link">
+              Valencià
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Accés a Dades" class="md-nav__button md-logo" aria-label="Accés a Dades" data-md-component="logo">
+      
+  <img src="../../assets/jaume.png" alt="logo">
+
+    </a>
+    Accés a Dades
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inici
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 1. Fitxers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 1. Fitxers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_File_System.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sistema de Fitxers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_Reading_and_writing_files.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Llegint i Escrivint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_XML_Files.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Treball amb Arxius XML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_JSON_Files.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Treball amb Arxius JSON
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_Extra_Formats.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Altres formats de Fitxers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 2. Connectors
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 2. Connectors
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2_Connectors/1_Object_relational_impedance_mismatch.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desfase objecte-relacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2_Connectors/2_Connectors.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connectors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2_Connectors/3_Connecting.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connectant-se a la base de dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2_Connectors/4_Resultset.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resultats de les consultes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2_Connectors/5_Metadata.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metadades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2_Connectors/6_CRUD.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operacions CRUD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2_Connectors/7_Row_to_Object.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De les files als objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 3. Hibernate
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 3. Hibernate
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/1_Mapping.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapeig d'objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/2_Hibernate.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduccio a Hibernate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/3_Entities_Beans.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entitats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/4_Relationships.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Relacions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3_Hibernate/5_HQL.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consultes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 4. Bases de Dades OO
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 4. Bases de Dades OO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4_BDOO/1_Introduction.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduccio a les bases de dades OO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4_BDOO/2_ORDB.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de dades Objecte-Relacionals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4_BDOO/3_OODB.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de dades Orientades a Objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 5. Spring
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 5. Spring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/1_Data_Access_Services.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serveis d'Acces a Dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/2_Spring_SpringBoot.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció a Spring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/3_API_Rest.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creació de APIs REST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/4_Spring_Security.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Seguretat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/5_Spring_Hateoas.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spring Haetoas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5_Spring/6_Postman_Swagger.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test. Postman i Swagger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 6. MongoDB
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 6. MongoDB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/1_NoSQL.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Dades NoSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/2_MongoDB.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció a MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/3_ShellOperations.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operacions amb Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/4_Queries.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consultes CRUD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/5_Mongo_Java.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mongo i Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6_MongoDB/6_Spring_MongoDB.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spring Data MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre mi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Llicència
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-fileinputstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. FileInputStream
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-fileoutputstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. FileOutputStream
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2. FileOutputStream">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-exercici-resolt" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.1. Exercici resolt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-fitxers-de-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3. Fitxers de text
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3. Fitxers de text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-filereader" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.1. FileReader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-filewriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.2. FileWriter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133-exercici-resolt" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.3. Exercici resolt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-decoradors" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4. Decoradors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4. Decoradors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-exercici-resolt" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.1. Exercici resolt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-fitxers-binaris" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5. Fitxers Binaris
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5. Fitxers Binaris">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151-emmagatzemar-dades-estructurades-en-fitxers-binaris" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.1. Emmagatzemar dades estructurades en fitxers binaris
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#152-exercici-resolt" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.2. Exercici resolt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-serialitzant-objectes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6. Serialitzant Objectes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.6. Serialitzant Objectes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#161-la-interficie-serializable-i-els-decorators" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6.1. La interfície Serializable i els Decorators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#162-exercici-resolt" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6.2. Exercici resolt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="1-lectura-i-escriptura-de-fitxers">1. Lectura i escriptura de fitxers</h1>
+<p>Java ofereix una gran varietat de maneres de manipular el contingut dels fitxers, aportant gran poder però també complexitat al mateix temps.</p>
+<p>La lectura i escriptura de fitxers en Java es fa a través de fluxos de dades o <code>streams</code>, que poden ser orientats a bytes o considerats com un conjunt de caràcters. El concepte de fitxer, que és estàtic, ha de diferenciar-se del concepte de flux, que té un caràcter dinàmic: un fitxer es guarda al disc, però des del punt de vista de l'aplicació, ens interessa la transferència d'aquesta informació des del fitxer al nostre programa. Una comparació clàssica: els fluxos serien com canonades d'aigua, mentre que els fitxers serien dipòsits. El concepte de <strong>flux de dades</strong>, a part de l'àmbit dels fitxers, també serà aplicable a la transferència d'informació, per exemple a través de la xarxa o entre processos.</p>
+<p>Els fluxes es poden classificar en:</p>
+<ul>
+<li><code>flux d'entrada</code>: Aquells que van des d'una font (per exemple, un fitxer) al programa.</li>
+<li><code>flux de sortida</code>: Aquells que surten del programa cap a una destinació (per exemple, un fitxer).</li>
+</ul>
+<p>Quan llegim i emmagatzemem dades, hem de tenir molt de compte amb els tipus de dades amb els quals treballem, ja que la mateixa seqüència de bits al disc representa informació diferent segons el tipus de dades utilitzat. Inclos quan es tracta del mateix tipus de dades, com en el cas dels caràcters, cal tenir cura especial, ja que diferents sistemes poden utilitzar diferents codificacions. Java, per exemple, per al tipus char utilitza Unicode de 16 bits (UTF-16), però podem intentar accedir a fitxers codificats, per exemple, amb UTF-8 o ASCII.</p>
+<p>Les superclasses pare per al maneig de corrents orientats a bytes són <code>InputStream</code> i <code>OutputStream</code>. D'elles en deriven altres, però per a la gestió de fitxers ens interessen dues: <code>FileInputStream</code> i <code>FileOutputStream</code>.</p>
+<h2 id="11-fileinputstream">1.1. FileInputStream</h2>
+<p>La classe <code>FileInputStream</code> s'utilitza per accedir a fitxers per a la lectura i té dos constructors principals:</p>
+<ul>
+<li><code>FileInputStream (File f)</code> → Rep un objecte de tipus <code>File</code>, que farà referència a l'objecte que llegirem.</li>
+<li><code>FileInputStream (String name)</code> → Rep una cadena amb el nom o la ruta de la ubicació del fitxer a llegir.</li>
+</ul>
+<p>Els principals mètodes que tenim per a aquesta classe són:</p>
+<ul>
+<li><code>int read()</code> → Mètode de lectura seqüencial abstracte: Retorna un enter corresponent al següent byte d'un flux d'entrada (fitxer, vector de bytes...). Si arriba al final de la seqüència, retorna <code>-1</code>. En cas d'error, llançarà una excepció de tipus <code>IOException</code>.</li>
+<li><code>int read(byte[] buffer)</code> → Llegeix un nombre determinat de bytes de l'entrada (tant com el tamany del buffer), els guarda al buffer i retorna el nombre de bytes llegits efectivament, que com a màxim serà igual al tamany del buffer. Si no hi ha bytes disponibles, retorna <code>-1</code>.</li>
+<li><code>int available()</code> → Indica els bytes disponibles per a la lectura.</li>
+<li><code>long skip(long des)</code> → Salta tants bytes com indica el paràmetre. El valor de retorn és el nombre de bytes que s'han descartat efectivament (pot ser menor que el que hem indicat si arribem al final, per exemple).</li>
+<li><code>int close()</code> → Tanca el flux de dades.</li>
+</ul>
+<h2 id="12-fileoutputstream">1.2. FileOutputStream</h2>
+<p>La classe <code>FileOutputStream</code> s'utilitza per accedir a fitxers per a l'escriptura. Té els següents constructors:</p>
+<ul>
+<li><code>FileOutputStream (File f)</code> → Rep un objecte de tipus <code>File</code> i l'obre en mode escriptura. En cas que no existeixi, es crearà, i si ja existeix, es sobreescriurà.</li>
+<li><code>FileOutputStream (String name)</code> → Rep una cadena amb el nom o la ruta de la ubicació del fitxer a escriure, i l'obre en mode escriptura. En cas que no existeixi, es crearà, i si ja existeix, es sobreescriurà.</li>
+<li><code>FileOutputStream (File f, boolean append)</code> → Rep un objecte de tipus <code>File</code> i l'obre en mode afegir, per escriure al final. Si no existeix, es crearà, i si ja existeix, s'escriurà darrere (només si append està establert a <code>True</code>).</li>
+<li><code>FileOutputStream (String name, boolean append)</code> → Rep una cadena amb el nom o la ruta de la ubicació del fitxer a escriure i l'obre en mode afegir, per escriure al final. Si no existeix, es crearà, i si ja existeix, s'escriurà darrere (només si append està establert a <code>True</code>).</li>
+</ul>
+<p>Els principals mètodes de la classe són:</p>
+<ul>
+<li><code>write(int byte)</code> → Escriu el byte al flux de sortida. Encara que aquest paràmetre és un enter, només s'escriu un byte. Si hi ha un error, es llançarà una excepció de tipus <code>IOException</code>.</li>
+<li><code>void write(byte[] buffer)</code> → Escriu el contingut del buffer (vector de bytes) al fitxer. Si el buffer és nul, llançarà una excepció.</li>
+<li><code>void write(byte[] buffer, int pos, int length)</code> → Escriu el contingut del <code>buffer</code> (vector de bytes) des de la posició <code>pos</code>, i tants bytes com s'indiquin en <code>length</code>.</li>
+<li><code>void flush()</code> → Força l'escriptura dels bytes restants a la memòria cau al fitxer de sortida.</li>
+<li><code>void close()</code> → Tanca el flux de sortida i allibera els recursos.</li>
+</ul>
+<h3 id="121-exercici-resolt">1.2.1. Exercici resolt</h3>
+<p>Crea un programa senzill en Java que copie un fitxer a un altre fitxer byte a byte. El fitxer origen i el fitxer destí s'indicaran a través de la línia de comandes.</p>
+<div class="admonition example">
+<p class="admonition-title">Solució</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span>
+<span class="normal"><a href="#__codelineno-0-46">46</a></span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span>
+<span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span>
+<span class="normal"><a href="#__codelineno-0-51">51</a></span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span>
+<span class="normal"><a href="#__codelineno-0-58">58</a></span>
+<span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#__codelineno-0-60">60</a></span>
+<span class="normal"><a href="#__codelineno-0-61">61</a></span>
+<span class="normal"><a href="#__codelineno-0-62">62</a></span>
+<span class="normal"><a href="#__codelineno-0-63">63</a></span>
+<span class="normal"><a href="#__codelineno-0-64">64</a></span>
+<span class="normal"><a href="#__codelineno-0-65">65</a></span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span>
+<span class="normal"><a href="#__codelineno-0-67">67</a></span>
+<span class="normal"><a href="#__codelineno-0-68">68</a></span>
+<span class="normal"><a href="#__codelineno-0-69">69</a></span>
+<span class="normal"><a href="#__codelineno-0-70">70</a></span>
+<span class="normal"><a href="#__codelineno-0-71">71</a></span>
+<span class="normal"><a href="#__codelineno-0-72">72</a></span>
+<span class="normal"><a href="#__codelineno-0-73">73</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">class</span> <span class="nc">FileCopy</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="cm">/*</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="cm">    Class to test FileInputStream and FileOutputStream. </span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="cm">    Copy byte to byte of files</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="cm">    Sintaxi:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="cm">        FileCopy sourceFile destinationFile.</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="cm">    */</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">        </span><span class="c1">// Byte readed from source</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">bytes</span><span class="p">;</span><span class="w">        </span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">        </span><span class="c1">// Bytes (effectively) writen to dest</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">bytesCopied</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">        </span><span class="c1">// Streams </span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">        </span><span class="n">FileInputStream</span><span class="w"> </span><span class="n">fis</span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">        </span><span class="n">FileOutputStream</span><span class="w"> </span><span class="n">fos</span><span class="o">=</span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">        </span><span class="c1">// To provide information about source</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">        </span><span class="c1">// Are the arguments ok?</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span><span class="o">!=</span><span class="mi">2</span><span class="p">){</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Nombre d&#39;arguments erroni. Sintaxi:\n FileCopy fitxerOrigen fitxerDesti&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">        </span><span class="k">try</span><span class="p">{</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">            </span><span class="c1">// show source size</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">            </span><span class="n">f</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Total: &quot;</span><span class="o">+</span><span class="n">f</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">+</span><span class="s">&quot; bytes&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">            </span><span class="c1">// Create streams          </span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">            </span><span class="n">fis</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">            </span><span class="n">fos</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">            </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">                </span><span class="c1">// read one byte from source</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">                </span><span class="n">bytes</span><span class="o">=</span><span class="n">fis</span><span class="p">.</span><span class="na">read</span><span class="p">();</span><span class="w">                 </span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">                </span><span class="c1">// write in destination</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bytes</span><span class="o">!=-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="w">                    </span><span class="n">fos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">bytes</span><span class="p">);</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">                </span><span class="c1">// Update number of bytes</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">                </span><span class="n">bytesCopied</span><span class="o">++</span><span class="p">;</span><span class="w">                    </span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">                </span><span class="c1">// Show progress (think alternatives as exercise)</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;\rCopiats &quot;</span><span class="o">+</span><span class="p">(</span><span class="n">bytesCopied</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s">&quot; bytes...&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">            </span><span class="p">}</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">bytes</span><span class="o">!=-</span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Done it!&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">        </span><span class="p">}</span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">exc</span><span class="p">){</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Error d&#39;entrada i eixida: &quot;</span><span class="o">+</span><span class="n">exc</span><span class="p">);</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">        </span><span class="p">}</span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">            </span><span class="c1">// At the end, we have to close the files, either an error exists or not.</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fis</span><span class="o">!=</span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">fis</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="w">            </span><span class="p">}</span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">exc</span><span class="p">){</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Error en tancar el fitxer d&#39;origen.&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">fos</span><span class="o">!=</span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">fos</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="w">            </span><span class="p">}</span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">exc</span><span class="p">){</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Error en tancar el fitxer destí.&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Pensa i comprova</p>
+<p>Amb el programa d'exemple que hem vist, podríem copiar fitxers de tot tipus: text, àudio, vídeo. Prova-ho tu mateix i comprova que el contingut és el mateix.</p>
+<p><strong>Repte</strong></p>
+<p>Intenta canviar l'últim programa per llegir les dades en blocs de 32 bytes, utilitzant els mètodes adequats de les classes. Comparteix la teva solució al fòrum.</p>
+</div>
+<h2 id="13-fitxers-de-text">1.3. Fitxers de text</h2>
+<p>Com s'ha dit, Java permet gestionar fluxos amb orientació a bytes o amb orientació a caràcters. Les classes abstractes per a la gestió de fluxos orientats a caràcters són <code>Reader</code> i <code>Writer</code>. Aquestes classes deriven d'altres, però per a la gestió de fitxers ens centrem en <code>FileReader</code> i <code>FileWriter</code>.</p>
+<h3 id="131-filereader">1.3.1. <code>FileReader</code></h3>
+<p>La classe <code>FileReader</code> serveix per accedir a fitxers per a la lectura i té dos constructors:</p>
+<ul>
+<li><code>FileReader (File f)</code> → Rep un objecte de tipus <code>File</code>, que farà referència a l'objecte del qual s'obtindrà la informació.</li>
+<li><code>FileReader (String name)</code> → Rep una cadena amb el nom o la ruta del fitxer.</li>
+</ul>
+<p>Els mètodes que tenim per a aquesta classe són molt semblants als que tenim per a <code>FileInputStream</code>, amb la diferència que ara llegim caràcters en comptes de bytes. Un aspecte a tenir en compte és que aquests caràcters es representaran en el format del sistema operatiu amfitrió (UTF-8 en el cas de Linux), a diferència de l'UTF-16 utilitzat per altres classes d'emmagatzematge intern:</p>
+<ul>
+<li><code>int read()</code> → Llegeix el següent caràcter del flux d'entrada i el retorna com a enter. Si no queden caràcters, retorna -1, i si hi ha un error, llança una excepció de tipus IOException.</li>
+<li><code>int read(char[] buffer)</code> → Omple el buffer amb tants caràcters de l'entrada com tingui (com a màxim). Retorna el nombre de caràcters llegits efectivament. Aquest nombre serà la longitud del buffer o menys si no hi ha prou caràcters per llegir. Si no n'hi ha cap, retorna -1.</li>
+<li><code>int available()</code> → Retorna el nombre de caràcters disponibles per a la lectura.</li>
+<li><code>long skip(long des)</code> → Salta tants caràcters com indica el paràmetre. El valor de retorn és el nombre de caràcters que s'han descartat efectivament (pot ser menor que el que hem indicat si arribem al final, per exemple).</li>
+<li><code>int close()</code> → Tanca el flux de dades.</li>
+</ul>
+<h3 id="132-filewriter">1.3.2. <code>FileWriter</code></h3>
+<p>La classe FileWriter seria l'equivalent de <code>FileOutputStream</code> en la versió de fluxes orientats a caràcters. Els constructors de la classe són:</p>
+<ul>
+<li><code>FileWriter (File f)</code> → Obre el fitxer especificat per <code>File</code> per a l'escriptura. Si el fitxer no existeix, es crearà, i si ja existeix, es borraran els continguts.</li>
+<li><code>FileWriter (String name)</code> → Obre el fitxer especificat per una cadena amb el nom i la ruta en mode escriptura. Si no existeix, es crearà, i si ja existeix, es borraran els continguts.</li>
+<li><code>FileWriter (File f, boolean append)</code> → Rep un objecte de tipus <code>File</code> i l'obre en mode afegir, per escriure al final. Si no existeix, es crearà, i si ja existeix, s'escriurà darrere.</li>
+<li><code>FileWriter (String name, boolean append)</code> → Rep una cadena amb el nom o la ruta de la ubicació del fitxer a escriure i l'obre en mode afegir, per escriure al final. Si no existeix, es crearà, i si ja existeix, s'escriurà darrere.</li>
+</ul>
+<p>Els principals mètodes de la classe <code>FileWriter</code> són molt similars als de <code>OutputStream</code>:</p>
+<ul>
+<li><code>write(int character)</code> → Escriu el caràcter al flux de sortida, amb la codificació pròpia del sistema operatiu. Si hi ha un error, es llança una excepció de tipus <code>IOException</code>.</li>
+<li><code>void write(char[] buffer)</code> → Escriu el contingut del buffer (vector de caràcters) al fitxer. Si el buffer és nul, llançarà una excepció.</li>
+<li><code>void write(char[] buffer, int pos, int length)</code> → Escriu el contingut del buffer (array de caràcters) des de la posició pos, i tants bytes com s'indiquin en length.</li>
+<li><code>void flush()</code> → Força l'escriptura dels bytes restants a la memòria cau al fitxer de sortida.</li>
+<li><code>void close()</code> → Tanca el flux de sortida i allibera els recursos.</li>
+<li><code>void write(String text)</code> → Escriu tot el contingut de text al fitxer.</li>
+</ul>
+<h3 id="133-exercici-resolt">1.3.3. Exercici resolt</h3>
+<p>Crea un programa senzill en Java que fusioni tots els fitxers dins d'una carpeta en un únic fitxer. La carpeta d'origen i el fitxer de destinació s'indicaran en la crida del programa. Suposem que tots els fitxers dins d'aquesta carpeta són fitxers de text.</p>
+<div class="admonition example">
+<p class="admonition-title">Solució</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span>
+<span class="normal"><a href="#__codelineno-1-34">34</a></span>
+<span class="normal"><a href="#__codelineno-1-35">35</a></span>
+<span class="normal"><a href="#__codelineno-1-36">36</a></span>
+<span class="normal"><a href="#__codelineno-1-37">37</a></span>
+<span class="normal"><a href="#__codelineno-1-38">38</a></span>
+<span class="normal"><a href="#__codelineno-1-39">39</a></span>
+<span class="normal"><a href="#__codelineno-1-40">40</a></span>
+<span class="normal"><a href="#__codelineno-1-41">41</a></span>
+<span class="normal"><a href="#__codelineno-1-42">42</a></span>
+<span class="normal"><a href="#__codelineno-1-43">43</a></span>
+<span class="normal"><a href="#__codelineno-1-44">44</a></span>
+<span class="normal"><a href="#__codelineno-1-45">45</a></span>
+<span class="normal"><a href="#__codelineno-1-46">46</a></span>
+<span class="normal"><a href="#__codelineno-1-47">47</a></span>
+<span class="normal"><a href="#__codelineno-1-48">48</a></span>
+<span class="normal"><a href="#__codelineno-1-49">49</a></span>
+<span class="normal"><a href="#__codelineno-1-50">50</a></span>
+<span class="normal"><a href="#__codelineno-1-51">51</a></span>
+<span class="normal"><a href="#__codelineno-1-52">52</a></span>
+<span class="normal"><a href="#__codelineno-1-53">53</a></span>
+<span class="normal"><a href="#__codelineno-1-54">54</a></span>
+<span class="normal"><a href="#__codelineno-1-55">55</a></span>
+<span class="normal"><a href="#__codelineno-1-56">56</a></span>
+<span class="normal"><a href="#__codelineno-1-57">57</a></span>
+<span class="normal"><a href="#__codelineno-1-58">58</a></span>
+<span class="normal"><a href="#__codelineno-1-59">59</a></span>
+<span class="normal"><a href="#__codelineno-1-60">60</a></span>
+<span class="normal"><a href="#__codelineno-1-61">61</a></span>
+<span class="normal"><a href="#__codelineno-1-62">62</a></span>
+<span class="normal"><a href="#__codelineno-1-63">63</a></span>
+<span class="normal"><a href="#__codelineno-1-64">64</a></span>
+<span class="normal"><a href="#__codelineno-1-65">65</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">class</span> <span class="nc">FusionaTextos</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// Codi del programa</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="p">}</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="err">```</span><span class="w">     </span><span class="cm">/*</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="cm">    Sintax:</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="cm">        MergeTexts DirectoriOrigen FitxerDestí</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="cm">    */</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">dir</span><span class="p">;</span><span class="w"> </span><span class="c1">// Source dir</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">        </span><span class="c1">// Collection of files from that dir</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">        </span><span class="n">File</span><span class="o">[]</span><span class="w"> </span><span class="n">files</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">        </span><span class="c1">// readed characters</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">characters</span><span class="p">;</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">        </span><span class="c1">// Input and Output Streams </span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">        </span><span class="n">FileReader</span><span class="w"> </span><span class="n">fin</span><span class="o">=</span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">        </span><span class="n">FileWriter</span><span class="w"> </span><span class="n">fout</span><span class="o">=</span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">        </span><span class="c1">// Check the args</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span><span class="o">!=</span><span class="mi">2</span><span class="p">){</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Nombre d&#39;arguments erroni. Sintaxi:\n mergeTexts DirectoriOrigen fitxerDesti&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">        </span><span class="k">try</span><span class="p">{</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="w">            </span><span class="c1">// We get the list of Files</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">            </span><span class="n">dir</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="w">            </span><span class="n">files</span><span class="o">=</span><span class="n">dir</span><span class="p">.</span><span class="na">listFiles</span><span class="p">();</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35"></a>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a>
+<a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="w">            </span><span class="c1">// Open and close output stream (in order to create the file)</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="w">            </span><span class="n">fout</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">FileWriter</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="w">            </span><span class="n">fout</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40"></a>
+<a id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="w">            </span><span class="c1">// Re-open it</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="w">            </span><span class="n">fout</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">FileWriter</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43"></a>
+<a id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="w">            </span><span class="c1">// Iterate among the list</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">files</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46"></a><span class="w">                </span><span class="c1">// open input stream</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47"></a><span class="w">                </span><span class="n">fin</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]+</span><span class="s">&quot;/&quot;</span><span class="o">+</span><span class="n">files</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Merging &quot;</span><span class="o">+</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]+</span><span class="s">&quot;/&quot;</span><span class="o">+</span><span class="n">files</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49"></a><span class="w">                </span><span class="c1">// and merge to the output one</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50"></a><span class="w">                </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51"></a><span class="w">                    </span><span class="n">characters</span><span class="o">=</span><span class="n">fin</span><span class="p">.</span><span class="na">read</span><span class="p">();</span><span class="w">                 </span>
+<a id="__codelineno-1-52" name="__codelineno-1-52"></a><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">characters</span><span class="o">!=-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53"></a><span class="w">                        </span><span class="n">fout</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">characters</span><span class="p">);</span>
+<a id="__codelineno-1-54" name="__codelineno-1-54"></a><span class="w">                </span><span class="p">}</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">characters</span><span class="o">!=-</span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-1-55" name="__codelineno-1-55"></a><span class="w">                </span><span class="n">fin</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w"> </span><span class="c1">//close the file merged</span>
+<a id="__codelineno-1-56" name="__codelineno-1-56"></a>
+<a id="__codelineno-1-57" name="__codelineno-1-57"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-58" name="__codelineno-1-58"></a><span class="w">            </span><span class="n">fout</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w"> </span><span class="c1">//close the output file</span>
+<a id="__codelineno-1-59" name="__codelineno-1-59"></a>
+<a id="__codelineno-1-60" name="__codelineno-1-60"></a><span class="w">        </span><span class="p">}</span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">exc</span><span class="p">){</span>
+<a id="__codelineno-1-61" name="__codelineno-1-61"></a><span class="w">            </span><span class="c1">// Catch all the exception (we coud improve it)</span>
+<a id="__codelineno-1-62" name="__codelineno-1-62"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Input/Output error: &quot;</span><span class="o">+</span><span class="n">exc</span><span class="p">);</span>
+<a id="__codelineno-1-63" name="__codelineno-1-63"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-64" name="__codelineno-1-64"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-65" name="__codelineno-1-65"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Millora el teu codi</p>
+<p>Intenta millorar el codi anterior creant una funció <code>merge()</code>. Hauríem de cridar-la dins del bucle principal.</p>
+</div>
+<h2 id="14-decoradors">1.4. Decoradors</h2>
+<p><a href="https://refactoring.guru/es/design-patterns/decorator/">Patró de disseny decorador</a></p>
+<p>Les classes de decorador són aquelles que hereten d'una certa classe i proporcionen funcionalitats afegides a l'original. En el cas dels fluxos d'entrada i sortida, tenim decoradors que ens permeten llegir o escriure línies completes en comptes de byte a byte, o guardar en un cert format de dades. Simplifica la nostra feina, afegint una manera més natural i amigable per a utilitzar les classes base.</p>
+<p>La classe <code>InputStream</code> té diversos decoradors, però ens centrarem en els següents:</p>
+<ul>
+<li><code>DataInputStream</code> → Permet llegir dades de qualsevol tipus (enter, lògic, etc.)</li>
+<li><code>ObjectInputStream</code> → Afegeix la opció de llegir un objecte sencer</li>
+</ul>
+<p>D'altra banda, la classe <code>OutputStream</code> també té diferents decoradors, entre els quals destaquem:</p>
+<ul>
+<li><code>DataOutputStream</code> → Permet escriure dades de qualsevol tipus (enter, lògic, etc.)</li>
+<li><code>PrintStream</code> → Permet escriure dades de qualsevol tipus i també accepta els mètodes <code>printf</code> i <code>println</code></li>
+<li><code>ObjectOutputStream</code> → Permet escriure (serialitzar) objectes</li>
+</ul>
+<p>Pel que fa a les classes de decorador per a fluxos orientats a caràcters, tenim, d'una banda, els decoradors de <code>Reader</code> (més destacats):</p>
+<ul>
+<li><code>BufferedReader</code> → Crea un buffer d'entrada, permetent, per exemple, llegir una línia completa</li>
+</ul>
+<p>I per a l'escriptura:</p>
+<ul>
+<li><code>BufferedWriter</code> → Crea un buffer de sortida, permetent, per exemple, escriure una línia completa</li>
+<li><code>PrintWriter</code> → Permet escriure dades de diferents tipus i té mètodes com <code>printf</code> i <code>println</code></li>
+</ul>
+<p>La classe <code>BufferedReader</code>, entre altres, té el mètode <code>readLine()</code>, que permet llegir una línia sencera del fitxer fins al final de la línia, molt útil en fitxers de text.</p>
+<p>Per la seva banda, la classe <code>BufferedWriter</code> proporciona el mètode <code>newLine()</code> per introduir el caràcter de retorn de carro i el mètode <code>write(String cadena, int inici, int longitud)</code> per escriure una cadena o una part específica.</p>
+<p>L'altre decorador per a l'escriptura és el <code>PrintWriter</code>, que ens ofereix els mètodes <code>print(dades)</code>, <code>println(dades)</code> i <code>printf()</code> per a la formatació.</p>
+<div class="admonition note">
+<p class="admonition-title">Alternatives a...</p>
+<p>Òbviament, podríeu:</p>
+<ul>
+<li>concatenar <code>\n</code> al final de cada cadena en cada mètode <code>print()</code> en comptes de cridar <code>newLine()</code>.</li>
+<li>utilitzar <code>println()</code> en comptes de cridar <code>newLine()</code>.</li>
+</ul>
+</div>
+<h3 id="141-exercici-resolt">1.4.1. Exercici resolt</h3>
+<p>Crea un programa per copiar un fitxer de text afegint el número de línia al principi de cada línia.</p>
+<div class="admonition example">
+<p class="admonition-title">Solució</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span>
+<span class="normal"><a href="#__codelineno-2-26">26</a></span>
+<span class="normal"><a href="#__codelineno-2-27">27</a></span>
+<span class="normal"><a href="#__codelineno-2-28">28</a></span>
+<span class="normal"><a href="#__codelineno-2-29">29</a></span>
+<span class="normal"><a href="#__codelineno-2-30">30</a></span>
+<span class="normal"><a href="#__codelineno-2-31">31</a></span>
+<span class="normal"><a href="#__codelineno-2-32">32</a></span>
+<span class="normal"><a href="#__codelineno-2-33">33</a></span>
+<span class="normal"><a href="#__codelineno-2-34">34</a></span>
+<span class="normal"><a href="#__codelineno-2-35">35</a></span>
+<span class="normal"><a href="#__codelineno-2-36">36</a></span>
+<span class="normal"><a href="#__codelineno-2-37">37</a></span>
+<span class="normal"><a href="#__codelineno-2-38">38</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">NumberLines</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">        </span><span class="c1">// Input and Output</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="n">BufferedReader</span><span class="w"> </span><span class="n">fin</span><span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">        </span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">fout</span><span class="p">;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">        </span><span class="c1">// line counter</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num_linia</span><span class="p">;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span><span class="c1">// readed line</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">linia</span><span class="p">;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="c1">// check args</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Nombre d&#39;arguments erroni. Sintaxi:\n numberLines fitxer eixida&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">        </span><span class="c1">// Creare decorators</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">        </span><span class="n">fin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">));</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">        </span><span class="n">fout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PrintWriter</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileWriter</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">));</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">        </span><span class="n">num_linia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">        </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">            </span><span class="c1">// Read the line</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">            </span><span class="n">linia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fin</span><span class="p">.</span><span class="na">readLine</span><span class="p">();</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">linia</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="w">                </span><span class="n">fout</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num_linia</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;. &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">linia</span><span class="p">);</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="w">            </span><span class="n">num_linia</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">linia</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span><span class="w"> </span><span class="c1">// until we can&#39;t read</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32"></a>
+<a id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="w">        </span><span class="c1">// close all</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="w">        </span><span class="n">fin</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="w">        </span><span class="n">fout</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36"></a>
+<a id="__codelineno-2-37" name="__codelineno-2-37"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<h2 id="15-fitxers-binaris">1.5. Fitxers Binaris</h2>
+<p>En aquesta secció i les següents veurem com emmagatzemar diferents tipus de dades i objectes en fitxers de diferents formats: fitxers binaris, fitxers XML o JSON. Ara ens centrarem en els fitxers binaris, tant per emmagatzemar dades estructurades, d'una banda, com objectes, de l'altra, en un procés conegut com a serialització.</p>
+<h3 id="151-emmagatzemar-dades-estructurades-en-fitxers-binaris">1.5.1. Emmagatzemar dades estructurades en fitxers binaris</h3>
+<p>En la secció anterior vam veure com treballar amb fitxers de caràcters i de bytes. En el cas dels fitxers de bytes, hem vist com llegir-los i escriure'ls seqüencialment, byte a byte fins al final del fitxer. Ara veurem com emmagatzemar dades estructurades en fitxers binaris i com poder-les llegir.</p>
+<p>Imaginem que volem guardar la següent taula, que combina dades de diferents tipus. Aquest exemple apareixerà a les següents seccions.</p>
+<table>
+<thead>
+<tr>
+<th>Modul</th>
+<th>Hores</th>
+<th>Qualificació</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accés a Dades</td>
+<td>6</td>
+<td>8.45</td>
+</tr>
+<tr>
+<td>Programació de serveis i processos</td>
+<td>3</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>Desenvolupament d'interfícies</td>
+<td>6</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>Programació Multimèdia i dispositius mòbils</td>
+<td>5</td>
+<td>7.34</td>
+</tr>
+<tr>
+<td>Sistemes de Gestió Empresarial</td>
+<td>5</td>
+<td>8.2</td>
+</tr>
+<tr>
+<td>Empresa i iniciativa emprenedora</td>
+<td>3</td>
+<td>7.4</td>
+</tr>
+</tbody>
+</table>
+<p>Com podem veure, tenim dades de text, dades numèriques enteres i reals. Si volem mantenir els tipus, els fluxos orientats a caràcters com <code>Reader</code> o <code>Writer</code> no seran útils, així que hauríem d'utilitzar <code>InputStream</code> i <code>OutputStream</code>. El desavantatge és que seria necessari saber exactament quantes dades ocupa cada tipus de dada.</p>
+<p>Per tal de desar aquestes estructures eficientment, podem fer servir les classes <code>DataInputStream</code> i <code>DataOutputStream</code>, que són decoradors de fluxos i que ens ofereixen els següents mètodes per desar o recuperar dades de diferents tipus, sense haver de preocupar-nos de quant ocupen internament. Com podeu veure, hi ha mètodes recíprocs per llegir i escriure cada tipus de dada bàsic.</p>
+<table>
+<thead>
+<tr>
+<th><code>DataInputStream</code></th>
+<th><code>DataOutputStream</code></th>
+<th>Descripció</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>byte readByte()</code></td>
+<td><code>void writeByte(int)</code></td>
+<td>un byte</td>
+</tr>
+<tr>
+<td><code>short readShort()</code></td>
+<td><code>void writeShort(short)</code></td>
+<td>enter curt</td>
+</tr>
+<tr>
+<td><code>int readInt()</code></td>
+<td><code>void writeInt(int)</code></td>
+<td>un enter</td>
+</tr>
+<tr>
+<td><code>long readLong()</code></td>
+<td><code>void writeLong(long)</code></td>
+<td>un enter llarg</td>
+</tr>
+<tr>
+<td><code>float readFloat()</code></td>
+<td><code>void writeFloat(float)</code></td>
+<td>real de precisió simple</td>
+</tr>
+<tr>
+<td><code>double readDouble()</code></td>
+<td><code>void writeDouble(double)</code></td>
+<td>real doble</td>
+</tr>
+<tr>
+<td><code>char readChar()</code></td>
+<td><code>void writeChar(int)</code></td>
+<td>un caràcter Unicode</td>
+</tr>
+<tr>
+<td><code>String readUTF()</code></td>
+<td><code>void writeUTF(String)</code></td>
+<td> un String UTF-8</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Una cadena <code>UTF-8</code> és diferent d'una String. Quan es guarda una cadena, com és evident, es guarda tots els caràcters. En desar-la com a cadena UTF-8, s'afegeix informació sobre la longitud de la cadena, i aquesta informació és essencial per tallar aquestes cadenes quan es llegeixin en el futur.</p>
+<p>Imagina que guardes dues cadenes, "euro" i "sport". El resultat serà, al final, "eurosport". Quan algú obri aquest fitxer en el futur, com sabrà el nombre de cadenes emmagatzemades ("euro", "sport" o simplement "eurosport" (canal de televisió))?</p>
+<p>En desar-ho com a UTF-8, quan guardes "euro" i "sport", el resultat és "4euro5sport". Quan algú intenti llegir-ho, primer veurà un '4' i llegirà "euro". Després, veurà un '5' i llegirà "sport".</p>
+<p>Cal destacar que si es guarda "eurosport", el resultat serà "9eurosport". Prova d'escriure un programa d'exemple amb aquesta cadena, obrint el fitxer resultant amb un editor hexadecimal.</p>
+</div>
+<h3 id="152-exercici-resolt">1.5.2. Exercici resolt</h3>
+<p>Escriu un programa que tingui les dades emmagatzemades en tres arrays paral·lels, que emmagatzemen les dades dels mòduls de DAM. Escriu dues funcions, una per escriure aquestes dades en un fitxer i una altra per llegir-les. Considera emmagatzemar les dades agrupades per mòdul, en comptes de nom, hores i qualificació.</p>
+<div class="admonition example">
+<p class="admonition-title">Solució</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span>
+<span class="normal"><a href="#__codelineno-3-27">27</a></span>
+<span class="normal"><a href="#__codelineno-3-28">28</a></span>
+<span class="normal"><a href="#__codelineno-3-29">29</a></span>
+<span class="normal"><a href="#__codelineno-3-30">30</a></span>
+<span class="normal"><a href="#__codelineno-3-31">31</a></span>
+<span class="normal"><a href="#__codelineno-3-32">32</a></span>
+<span class="normal"><a href="#__codelineno-3-33">33</a></span>
+<span class="normal"><a href="#__codelineno-3-34">34</a></span>
+<span class="normal"><a href="#__codelineno-3-35">35</a></span>
+<span class="normal"><a href="#__codelineno-3-36">36</a></span>
+<span class="normal"><a href="#__codelineno-3-37">37</a></span>
+<span class="normal"><a href="#__codelineno-3-38">38</a></span>
+<span class="normal"><a href="#__codelineno-3-39">39</a></span>
+<span class="normal"><a href="#__codelineno-3-40">40</a></span>
+<span class="normal"><a href="#__codelineno-3-41">41</a></span>
+<span class="normal"><a href="#__codelineno-3-42">42</a></span>
+<span class="normal"><a href="#__codelineno-3-43">43</a></span>
+<span class="normal"><a href="#__codelineno-3-44">44</a></span>
+<span class="normal"><a href="#__codelineno-3-45">45</a></span>
+<span class="normal"><a href="#__codelineno-3-46">46</a></span>
+<span class="normal"><a href="#__codelineno-3-47">47</a></span>
+<span class="normal"><a href="#__codelineno-3-48">48</a></span>
+<span class="normal"><a href="#__codelineno-3-49">49</a></span>
+<span class="normal"><a href="#__codelineno-3-50">50</a></span>
+<span class="normal"><a href="#__codelineno-3-51">51</a></span>
+<span class="normal"><a href="#__codelineno-3-52">52</a></span>
+<span class="normal"><a href="#__codelineno-3-53">53</a></span>
+<span class="normal"><a href="#__codelineno-3-54">54</a></span>
+<span class="normal"><a href="#__codelineno-3-55">55</a></span>
+<span class="normal"><a href="#__codelineno-3-56">56</a></span>
+<span class="normal"><a href="#__codelineno-3-57">57</a></span>
+<span class="normal"><a href="#__codelineno-3-58">58</a></span>
+<span class="normal"><a href="#__codelineno-3-59">59</a></span>
+<span class="normal"><a href="#__codelineno-3-60">60</a></span>
+<span class="normal"><a href="#__codelineno-3-61">61</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Moduls</span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// several arrays with modules data</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">moduls</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;Accés a Dades&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Programació de serveis i processos&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Desenvolupament d&#39;interfícies&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Programació Multimèdia i dispositiud mòbils&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sistemes de Gestió Empresarial&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Empresa i iniciativa emprenedora&quot;</span><span class="p">};</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="kt">int</span><span class="o">[]</span><span class="w">  </span><span class="n">hores</span><span class="o">=</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="n">notes</span><span class="o">=</span><span class="p">{</span><span class="mf">8.45</span><span class="p">,</span><span class="w"> </span><span class="mf">9.0</span><span class="p">,</span><span class="w"> </span><span class="mf">8.0</span><span class="p">,</span><span class="w"> </span><span class="mf">7.34</span><span class="p">,</span><span class="w"> </span><span class="mf">8.2</span><span class="p">,</span><span class="w"> </span><span class="mf">7.4</span><span class="p">};</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">readFiLe</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">        </span><span class="c1">// Per lleginr el fitxer binari, creem un DataInputStream</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">        </span><span class="c1">// a partir del FileInputStream creat a partir del nom</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="n">DataInputStream</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DataInputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="n">name</span><span class="p">));</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">        </span><span class="c1">// Mentre el DataInputStream tinga dades disponibles</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">available</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">            </span><span class="c1">// Llegirem del fitxer cada dada, amb l&#39;ordre corresponent</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">            </span><span class="c1">// en funció del tipus</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">            </span><span class="c1">// (per tant, hem de saber l&#39;ordre en què guardem!)</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Mòdul: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">readUTF</span><span class="p">());</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hores: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">readInt</span><span class="p">());</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Notes: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">readDouble</span><span class="p">());</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">        </span><span class="n">f</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">writeFile</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">{</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="w">        </span><span class="c1">// Per escriure el fitxer, fem ús de DataOutputStream</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="w">        </span><span class="n">DataOutputStream</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DataOutputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="n">name</span><span class="p">));</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="w">        </span><span class="c1">// Recorrerem qualsevol dels vectors (tots haurien de tindre)</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="w">        </span><span class="c1">// la mateixa longitud</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="k">this</span><span class="p">.</span><span class="na">moduls</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="w">            </span><span class="c1">// I per a cada posició, escriurem en funció del tipus de dada</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34"></a><span class="w">            </span><span class="n">f</span><span class="p">.</span><span class="na">writeUTF</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">moduls</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35"></a><span class="w">            </span><span class="n">f</span><span class="p">.</span><span class="na">writeInt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">hores</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36"></a><span class="w">            </span><span class="n">f</span><span class="p">.</span><span class="na">writeDouble</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">notes</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37"></a>
+<a id="__codelineno-3-38" name="__codelineno-3-38"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39"></a><span class="w">        </span><span class="n">f</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41"></a>
+<a id="__codelineno-3-42" name="__codelineno-3-42"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43"></a>
+<a id="__codelineno-3-44" name="__codelineno-3-44"></a><span class="w">        </span><span class="c1">// Comprovem els arguments</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span><span class="o">!=</span><span class="mi">2</span><span class="p">){</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Nombre d&#39;arguments incorrecte.\n\nSintaxi: \n\t java Moduls [read | write] fitxer.dat&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-49" name="__codelineno-3-49"></a>
+<a id="__codelineno-3-50" name="__codelineno-3-50"></a><span class="w">        </span><span class="c1">// Defining the class</span>
+<a id="__codelineno-3-51" name="__codelineno-3-51"></a><span class="w">        </span><span class="n">Moduls</span><span class="w"> </span><span class="n">moduls</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">Moduls</span><span class="p">();</span>
+<a id="__codelineno-3-52" name="__codelineno-3-52"></a>
+<a id="__codelineno-3-53" name="__codelineno-3-53"></a><span class="w">        </span><span class="c1">// Depending the args, we will proceed</span>
+<a id="__codelineno-3-54" name="__codelineno-3-54"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;read&quot;</span><span class="p">))</span><span class="w"> </span>
+<a id="__codelineno-3-55" name="__codelineno-3-55"></a><span class="w">        </span><span class="n">moduls</span><span class="p">.</span><span class="na">readFiLe</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-3-56" name="__codelineno-3-56"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;write&quot;</span><span class="p">))</span><span class="w"> </span>
+<a id="__codelineno-3-57" name="__codelineno-3-57"></a><span class="w">        </span><span class="n">moduls</span><span class="p">.</span><span class="na">writeFile</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-3-58" name="__codelineno-3-58"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span>
+<a id="__codelineno-3-59" name="__codelineno-3-59"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;No entenc l&#39;ordre &quot;</span><span class="o">+</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]+</span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-60" name="__codelineno-3-60"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-61" name="__codelineno-3-61"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<h2 id="16-serialitzant-objectes">1.6. Serialitzant Objectes</h2>
+<p>Java proporciona un sistema genèric de serialització d'objectes: un sistema recursiu que itera sobre cada objecte contingut en una instància, fins arribar als tipus primitius, que s'emmagatzemen com un array de bytes. A part d'aquesta informació dels tipus primitius, també s'emmagatzema informació addicional o metadades específiques de cada classe, com ara el nom o els atributs, entre d'altres. Gràcies a aquestes metadades, que descriuen els objectes que guardem, podem automatitzar la serialització de manera genèrica, assegurant-nos que posteriorment podrem llegir els objectes.</p>
+<p>El desavantatge d'aquest mètode és que quan canviem la definició de la classe (per exemple, afegint un atribut més o canviant el seu tipus), les metadades es modifiquen i no podríem llegir els objectes serialitzats amb versions anteriors de la classe. A més, també cal tenir en compte que aquest és un mecanisme específic de Java i que no podrem consultar aquests objectes des d'altres llenguatges.</p>
+<p>Per tot això, altres tècniques són preferibles per a l'emmagatzematge permanent d'objectes, que veurem més endavant, però la serialització pot ser útil per a l'emmagatzematge temporal, dins de la mateixa execució de l'aplicació.</p>
+<div class="admonition note">
+<p class="admonition-title">Què és això?</p>
+<p><strong>Investigació:</strong> intenta trobar informació sobre <strong><em>SerialVersionUID</em></strong> i per a què és important.</p>
+</div>
+<h3 id="161-la-interficie-serializable-i-els-decorators">1.6.1. La interfície <code>Serializable</code> i els <code>Decorators</code></h3>
+<p>Si volem que una classe sigui serializable, ha de implementar la interfície <code>Serializable</code>, la qual té com a únic propòsit actuar com a marcador per indicar al JVM que la classe pot ser serialitzada, per tant, aquesta classe no tindrà mètodes.</p>
+<p>Cal dir que totes les classes corresponents als tipus bàsics ja implementen la interfície Serializable, així com la classe String, contenidors i Arrays. En el cas de les col·leccions, depèn dels seus continguts, si els seus elements són serialitzables, la col·lecció també ho serà. Si l'objecte que volem serialitzar o els seus objectes no implementen la interfície Serializable, es llançarà l'excepció <code>NotSerializableException</code>.</p>
+<p>Els decoradors <code>ObjectInputStream</code> i <code>ObjectOutputStream</code> ens ofereixen la capacitat de serialitzar qualsevol objecte deserialitzable. Per escriure un objecte, farem ús del mètode <code>writeObject</code> de <code>ObjectOutputStream</code>, i per llegir-lo farem ús de <code>readObject</code> de <code>ObjectInputStream</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Ovelles amb ovelles</p>
+<p>Cal tenir en compte que la lectura d'objectes s'ha de fer en instàncies de la mateixa classe que es va guardar. En cas contrari, es llançarà una excepció <code>ClassCastException</code>. A més, cal tenir el codi compilat de la classe per evitar l'excepció <code>ClassNotFoundException</code>.</p>
+<p>A més, <code>readObject</code> retorna un Object, i necessitem un objecte d'una classe específica. Per aquest motiu, cal fer una conversió de Object a la classe necessària. Els conceptes d'herència són molt importants per garantir programes robustos.</p>
+</div>
+<h3 id="162-exercici-resolt">1.6.2. Exercici resolt</h3>
+<p>Començant amb la mateixa base de la classe <code>Moduls</code> de l'exercici anterior, crearem una classe <code>Modul</code> per emmagatzemar un únic mòdul. Aquest tipus de classes es coneixen com a POJO (Plain Old Java Objects) i estan dissenyades només per emmagatzemar informació. (Apareixerà més endavant, juntament amb les classes BEAN).</p>
+<p>Un cop creada la classe <code>Modul</code>, escriu un programa per desar objectes directament en un fitxer. Després, escriu la funció complementària per llegir tots els objectes emmagatzemats en aquest fitxer.</p>
+<div class="admonition example">
+<p class="admonition-title">Solució</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-4-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-4-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-4-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-4-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-4-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-4-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-4-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-4-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-4-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-4-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-4-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-4-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-4-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-4-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-4-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-4-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-4-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-4-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-4-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-4-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-4-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-4-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-4-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-4-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-4-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-4-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-4-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-4-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-4-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-4-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-4-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-4-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-4-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-4-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-4-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-4-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-4-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-4-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-4-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-4-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-4-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-4-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-4-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-4-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-4-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-4-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-4-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-4-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-4-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-4-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-4-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-4-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-4-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-4-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-4-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-4-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-4-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-4-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-4-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-4-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-4-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-4-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-4-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-4-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-4-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-4-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-4-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-4-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-4-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-4-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-4-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-4-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-4-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-4-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-4-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-4-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-4-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-4-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-4-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-4-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-4-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-4-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-4-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-4-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-4-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-4-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-4-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-4-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-4-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-4-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-4-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-4-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-4-100">100</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/**</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="cm">    Class to storage a single module in memory</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="cm">*/</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="kd">class</span> <span class="nc">Modul</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Serializable</span><span class="p">{</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">hores</span><span class="p">;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">nota</span><span class="p">;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Modul</span><span class="p">(){</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="c1">// Constructor buit</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Modul</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hores</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">nota</span><span class="p">){</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">nom</span><span class="o">=</span><span class="n">nom</span><span class="p">;</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hores</span><span class="o">=</span><span class="n">hores</span><span class="p">;</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">nota</span><span class="o">=</span><span class="n">nota</span><span class="p">;</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getModul</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">nom</span><span class="p">;}</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getHores</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">hores</span><span class="p">;}</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getNota</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">nota</span><span class="p">;}</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a>
+<a id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="cm">/**</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26"></a><span class="cm">    Write and Read modules to/from file</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27"></a><span class="cm">*/</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28"></a>
+<a id="__codelineno-4-29" name="__codelineno-4-29"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Moduls2</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30"></a>
+<a id="__codelineno-4-31" name="__codelineno-4-31"></a><span class="w">    </span><span class="c1">// Arrays with source data</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32"></a><span class="w">    </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">moduls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Accés a Dades&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Programació de serveis i processos&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Desenvolupament d&#39;interfícies&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Programació Multimèdia i dispositiud mòbils&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sistemes de Gestió Empresarial&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Empresa i iniciativa emprenedora&quot;</span><span class="p">};</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33"></a><span class="w">    </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">hores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34"></a><span class="w">    </span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="n">notes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">8.45</span><span class="p">,</span><span class="w"> </span><span class="mf">9.0</span><span class="p">,</span><span class="w"> </span><span class="mf">8.0</span><span class="p">,</span><span class="w"> </span><span class="mf">7.34</span><span class="p">,</span><span class="w"> </span><span class="mf">8.2</span><span class="p">,</span><span class="w"> </span><span class="mf">7.4</span><span class="p">};</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35"></a>
+<a id="__codelineno-4-36" name="__codelineno-4-36"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">EscriuObjecte</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37"></a>
+<a id="__codelineno-4-38" name="__codelineno-4-38"></a><span class="w">        </span><span class="c1">//destination file</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39"></a><span class="w">        </span><span class="n">ObjectOutputStream</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObjectOutputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="n">nom</span><span class="p">));</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40"></a>
+<a id="__codelineno-4-41" name="__codelineno-4-41"></a><span class="w">        </span><span class="n">Modul</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="c1">// Single object</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42"></a>
+<a id="__codelineno-4-43" name="__codelineno-4-43"></a><span class="w">        </span><span class="c1">// loop along the arrays</span>
+<a id="__codelineno-4-44" name="__codelineno-4-44"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">moduls</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-45" name="__codelineno-4-45"></a><span class="w">            </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Modul</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">moduls</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">hores</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">notes</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-4-46" name="__codelineno-4-46"></a><span class="w">            </span><span class="n">f</span><span class="p">.</span><span class="na">writeObject</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+<a id="__codelineno-4-47" name="__codelineno-4-47"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-48" name="__codelineno-4-48"></a>
+<a id="__codelineno-4-49" name="__codelineno-4-49"></a><span class="w">        </span><span class="c1">// close the file</span>
+<a id="__codelineno-4-50" name="__codelineno-4-50"></a><span class="w">        </span><span class="n">f</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-4-51" name="__codelineno-4-51"></a>
+<a id="__codelineno-4-52" name="__codelineno-4-52"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-53" name="__codelineno-4-53"></a>
+<a id="__codelineno-4-54" name="__codelineno-4-54"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">LligObjecte</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ClassNotFoundException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-55" name="__codelineno-4-55"></a>
+<a id="__codelineno-4-56" name="__codelineno-4-56"></a><span class="w">        </span><span class="c1">// input file</span>
+<a id="__codelineno-4-57" name="__codelineno-4-57"></a><span class="w">        </span><span class="n">ObjectInputStream</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObjectInputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="n">nom</span><span class="p">));</span>
+<a id="__codelineno-4-58" name="__codelineno-4-58"></a>
+<a id="__codelineno-4-59" name="__codelineno-4-59"></a><span class="w">        </span><span class="n">Modul</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-4-60" name="__codelineno-4-60"></a><span class="w">        </span><span class="c1">// we don&#39;t know how many objects exists in the file.</span>
+<a id="__codelineno-4-61" name="__codelineno-4-61"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-62" name="__codelineno-4-62"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// forever</span>
+<a id="__codelineno-4-63" name="__codelineno-4-63"></a>
+<a id="__codelineno-4-64" name="__codelineno-4-64"></a><span class="w">                </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Modul</span><span class="p">)</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">readObject</span><span class="p">();</span>
+<a id="__codelineno-4-65" name="__codelineno-4-65"></a>
+<a id="__codelineno-4-66" name="__codelineno-4-66"></a><span class="w">                </span><span class="c1">// show the module</span>
+<a id="__codelineno-4-67" name="__codelineno-4-67"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Modul: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">getModul</span><span class="p">());</span>
+<a id="__codelineno-4-68" name="__codelineno-4-68"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hores: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">getHores</span><span class="p">());</span>
+<a id="__codelineno-4-69" name="__codelineno-4-69"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Nota: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">getNota</span><span class="p">());</span>
+<a id="__codelineno-4-70" name="__codelineno-4-70"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+<a id="__codelineno-4-71" name="__codelineno-4-71"></a>
+<a id="__codelineno-4-72" name="__codelineno-4-72"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-4-73" name="__codelineno-4-73"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">EOFException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-74" name="__codelineno-4-74"></a><span class="w">            </span><span class="n">f</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-4-75" name="__codelineno-4-75"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-76" name="__codelineno-4-76"></a>
+<a id="__codelineno-4-77" name="__codelineno-4-77"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-78" name="__codelineno-4-78"></a>
+<a id="__codelineno-4-79" name="__codelineno-4-79"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ClassNotFoundException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-80" name="__codelineno-4-80"></a>
+<a id="__codelineno-4-81" name="__codelineno-4-81"></a><span class="w">        </span><span class="c1">// test the args</span>
+<a id="__codelineno-4-82" name="__codelineno-4-82"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-83" name="__codelineno-4-83"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Nombre d&#39;arguments incorrecte.\n\nSintaxi: \n\t java Moduls2 [ read | write ] fitxer.obj&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-84" name="__codelineno-4-84"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-4-85" name="__codelineno-4-85"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-86" name="__codelineno-4-86"></a>
+<a id="__codelineno-4-87" name="__codelineno-4-87"></a><span class="w">        </span><span class="n">Moduls2</span><span class="w"> </span><span class="n">moduls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Moduls2</span><span class="p">();</span>
+<a id="__codelineno-4-88" name="__codelineno-4-88"></a>
+<a id="__codelineno-4-89" name="__codelineno-4-89"></a><span class="w">        </span><span class="c1">// depending the args</span>
+<a id="__codelineno-4-90" name="__codelineno-4-90"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;read&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-91" name="__codelineno-4-91"></a><span class="w">            </span><span class="n">moduls</span><span class="p">.</span><span class="na">LligObjecte</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-4-92" name="__codelineno-4-92"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;write&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-93" name="__codelineno-4-93"></a><span class="w">            </span><span class="n">moduls</span><span class="p">.</span><span class="na">EscriuObjecte</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-4-94" name="__codelineno-4-94"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-95" name="__codelineno-4-95"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;No entenc l&#39;ordre &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-96" name="__codelineno-4-96"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-97" name="__codelineno-4-97"></a>
+<a id="__codelineno-4-98" name="__codelineno-4-98"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-99" name="__codelineno-4-99"></a>
+<a id="__codelineno-4-100" name="__codelineno-4-100"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Less work, but the same in the end</p>
+<p>You probably will think about it: <em>If all in Java inherits from Object, an ArrayList is an Object...Can I save or load an entire ArrayList in one unique call?.</em> Try it as an improvement of the last exercise.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
