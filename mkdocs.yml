@@ -3,7 +3,7 @@ docs_dir: "md"
 site_dir: "docs"
 theme: material
 nav:
-  - Inici: index.md
+  - Inici: index.ca.md
   - Unitat 1. Fitxers:
     - Sistema de Fitxers: UD1_Files/1_File_System.md
     - Llegint i Escrivint: UD1_Files/2_Reading_and_writing_files.md
@@ -53,12 +53,69 @@ nav:
   - Llicència: license.md
 
 
-plugins:
-  - search
+#plugins:
+#  - search
 #  - with-pdf:   #https://github.com/orzih/mkdocs-with-pdf
 #      author: Joan Gerard Camarena Estruch
 
+plugins:
+  - i18n:
+      docs_structure: suffix
+      default_language: ca
+      languages:
+        ca:
+          name: Valencia
+          default: true
+          build: true
+        en:
+          name: English
+          build: true
+          nav_translations:
+            Accés a Dades: Data Access
+            Inici: Index
+            Sobre mi: About me
+            Llicència: License
+            Unitat 1. Fitxers: Unit 1. Files
+            Sistema de Fitxers: File System
+            Llegint i Escrivint: Reading and Writing Files
+            Treball amb Arxius XML: Working with XML Files
+            Treball amb Arxius JSON: Working with JSON Files
+            Altres formats de Fitxers: Other File Formats
+            Unitat 2. Connectors: Unit 2. Connectors
+            Desfase objecte-relacional: Object-relational impedance mismatch
+            Connectors: Connectors
+            Connectant-se a la base de dades: Connecting to the database
+            Resultats de les consultes: Query results
+            Metadades: Metadata
+            Operacions CRUD: CRUD Operations
+            De les files als objectes: From rows to objects
+            Unitat 3. Hibernate: Unit 3. Hibernate
+            Mapeig d'objectes: Object mapping
+            Introduccio a Hibernate: Introduction to Hibernate
+            Entitats:  Entities
+            Relacions: Relationships
+            Consultes: Queries
+            Unitat 4. Bases de Dades OO: Unit 4. OO Databases
+            Introduccio a les bases de dades OO: Introduction to OO Databases
+            Bases de dades Objecte-Relacionals: Objet-Relational Databases
+            Bases de dades Orientades a Objectes: Object-Oriented Databases
+            Unitat 5. Spring: Unit 5. Spring 
+            Serveis d'Acces a Dades: Data Access Services
+            Introducció a Spring: Introduction to Spring
+            Creació de APIs REST: Creating REST APIs
+            Seguretat: Security
+            Spring Haetoas: Spring Hateoas 
+            Test. Postman i Swagger: Test. Postman and Swagger
+            Unitat 6. MongoDB: Unit 6. MongoDB 
+            Bases de Dades NoSQL: NoSQL Databases
+            Introducció a MongoDB: Introduction to MongoDB
+            Operacions amb Shell: Shell Operations
+            Consultes CRUD: CRUD Queries
+            Mongo i Java: Mongo and Java
+            Spring Data MongoDB: Spring MongoDB
 
+
+#plugins:
 #  - i18n:
 #      docs_structure: suffix
 #      languages:
